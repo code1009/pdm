@@ -87,6 +87,7 @@
     <ClInclude Include="..\pdm\pdm\pdm.h" />
     <ClInclude Include="..\pdm\pdm\pdm_allocator.h" />
     <ClInclude Include="..\pdm\pdm\pdm_compare.h" />
+    <ClInclude Include="..\pdm\pdm\pdm_const_string.h" />
     <ClInclude Include="..\pdm\pdm\pdm_container.h" />
     <ClInclude Include="..\pdm\pdm\pdm_core.h" />
     <ClInclude Include="..\pdm\pdm\pdm_map.h" />
@@ -102,6 +103,7 @@
     <ClCompile Include="..\pdm\pdm\pdm.c" />
     <ClCompile Include="..\pdm\pdm\pdm_allocator.c" />
     <ClCompile Include="..\pdm\pdm\pdm_compare.c" />
+    <ClCompile Include="..\pdm\pdm\pdm_const_string.c" />
     <ClCompile Include="..\pdm\pdm\pdm_container.c" />
     <ClCompile Include="..\pdm\pdm\pdm_core.c" />
     <ClCompile Include="..\pdm\pdm\pdm_map.c" />
@@ -110,8 +112,10 @@
     <ClCompile Include="..\pdm\pdm\pdm_vector.c" />
     <ClCompile Include="cppunit_test\tester.cpp" />
     <ClCompile Include="cppunit_test\testsuite_pdm.cpp" />
+    <ClCompile Include="cppunit_test\testsuite_pdm_const_string.cpp" />
     <ClCompile Include="cppunit_test\testsuite_pdm_container.cpp" />
     <ClCompile Include="cppunit_test\testsuite_pdm_map.cpp" />
+    <ClCompile Include="cppunit_test\testsuite_pdm_map_and_const_string.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="test_pdm.cpp" />
   </ItemGroup>
