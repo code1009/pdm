@@ -8,23 +8,23 @@
 <xsl:template match="/">
 <HTML>
 <HEAD>
-<TITLE>Test Report</TITLE>
-<STYLE>
-TABLE				{ font-family:'Arial'; font-size:12pt; font-weight:normal; color:#000000; background-color:#FFFFFF; }
-TH					{ font-family:'Arial'; font-size:12pt; font-weight:bold;   color:#FFFFFF; background-color:#404080; }
-TD					{ font-family:'Arial'; font-size:12pt; font-weight:normal; color:#000000; background-color:#FFFFFF; }
-TR.check			{ font-family:'Arial'; font-size:12pt; font-weight:normal; color:#000000; background-color:#FFFFFF; }
-TD.check			{ font-family:'Arial'; font-size:12pt; font-weight:normal; color:#000000; background-color:#FFFFFF; }
-H1					{ font-family:'Arial';                 font-weight:normal; color:#000000; border-style:solid; border-width:0px; border-bottom-width:3px; border-bottom-color:#404080; }
-H2					{ font-family:'Arial';                 font-weight:normal; color:#000000; border-style:solid; border-width:0px; border-bottom-width:2px; border-bottom-color:#404080; }
-H3					{ font-family:'Arial';                 font-weight:normal; color:#000000; border-style:solid; border-width:0px; border-bottom-width:1px; border-bottom-color:#404080; margin-bottom:8px; }
-H4					{ font-family:'Arial';                 font-weight:normal; color:#000000; border-style:solid; border-width:0px; border-bottom-width:1px; border-bottom-color:#404080; margin-bottom:8px; }
-H5					{ font-family:'Arial';                 font-weight:normal; color:#000000; border-style:solid; border-width:0px; border-bottom-width:1px; border-bottom-color:#404080; margin-bottom:8px; }
-H6					{ font-family:'Arial';                 font-weight:normal; color:#000000; border-style:solid; border-width:0px; border-bottom-width:1px; border-bottom-color:#404080; margin-bottom:8px; }
-SPAN.good			{ font-family:'Arial'; font-size:12pt; font-weight:normal; color:#008080;                           }
-SPAN.critical		{ font-family:'Arial'; font-size:12pt; font-weight:normal; color:#800000;                           }
-</STYLE>
-</HEAD>
+  <TITLE>Test Report</TITLE>
+  <STYLE>
+    TABLE        { font-family:'Arial'; font-size:10pt; font-weight:normal; color:#000000; background-color:#FFFFFF; }
+    TH           { font-family:'Arial'; font-size:10pt; font-weight:bold;   color:#FFFFFF; background-color:#404080; }
+    TD           { font-family:'Arial'; font-size:10pt; font-weight:normal; color:#000000; background-color:#FFFFFF; }
+    TR.check     { font-family:'Arial'; font-size:10pt; font-weight:normal; color:#000000; background-color:#FFFFFF; }
+    TD.check     { font-family:'Arial'; font-size:10pt; font-weight:normal; color:#000000; background-color:#FFFFFF; }
+    H1           { font-family:'Arial'; font-size:24pt; font-weight:normal; color:#000000; border-style:solid; border-width:0px; border-bottom-width:3px; border-bottom-color:#404080; }
+    H2           { font-family:'Arial'; font-size:20pt; font-weight:normal; color:#000000; border-style:solid; border-width:0px; border-bottom-width:2px; border-bottom-color:#404080; }
+    H3           { font-family:'Arial'; font-size:18pt; font-weight:normal; color:#000000; border-style:solid; border-width:0px; border-bottom-width:1px; border-bottom-color:#404080; margin-bottom:8px; }
+    H4           { font-family:'Arial'; font-size:16pt; font-weight:normal; color:#000000; border-style:solid; border-width:0px; border-bottom-width:1px; border-bottom-color:#404080; margin-bottom:8px; }
+    H5           { font-family:'Arial'; font-size:14pt; font-weight:normal; color:#000000; border-style:solid; border-width:0px; border-bottom-width:1px; border-bottom-color:#404080; margin-bottom:8px; }
+    H6           { font-family:'Arial'; font-size:12pt; font-weight:normal; color:#000000; border-style:solid; border-width:0px; border-bottom-width:1px; border-bottom-color:#404080; margin-bottom:8px; }
+    SPAN.good    { font-family:'Arial'; font-size:10pt; font-weight:normal; color:#008080;                           }
+    SPAN.critical{ font-family:'Arial'; font-size:10pt; font-weight:normal; color:#800000;                           }
+  </STYLE>
+  </HEAD>
 <BODY>
 	<H1>Test Report</H1>
 	<BR/>
