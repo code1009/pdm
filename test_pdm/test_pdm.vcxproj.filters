@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="pdm">
+      <UniqueIdentifier>{f7e69913-2051-402b-929e-07094f21a4e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cppunit_test">
+      <UniqueIdentifier>{996a47a0-1178-4cb7-aec9-7df2ff8b6c7d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pdm\pdm\pdm_container.h">
+      <Filter>pdm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pdm\pdm\pdm_core.h">
+      <Filter>pdm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pdm\pdm\pdm_element.h">
+      <Filter>pdm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pdm\pdm\pdm_map.h">
+      <Filter>pdm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pdm\pdm\pdm_memory.h">
+      <Filter>pdm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pdm\pdm\pdm_stack.h">
+      <Filter>pdm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pdm\pdm\pdm_vector.h">
+      <Filter>pdm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pdm\pdm\pdm.h">
+      <Filter>pdm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pdm\pdm\pdm_allocator.h">
+      <Filter>pdm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pdm\pdm\pdm_compare.h">
+      <Filter>pdm</Filter>
+    </ClInclude>
+    <ClInclude Include="cppunit_test\testsuite_pdm.hpp">
+      <Filter>cppunit_test</Filter>
+    </ClInclude>
+    <ClInclude Include="cppunit_test\tester.hpp">
+      <Filter>cppunit_test</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="test_pdm.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pdm\pdm\pdm_container.c">
+      <Filter>pdm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pdm\pdm\pdm_core.c">
+      <Filter>pdm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pdm\pdm\pdm_element.c">
+      <Filter>pdm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pdm\pdm\pdm_memory.c">
+      <Filter>pdm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pdm\pdm\pdm_stack.c">
+      <Filter>pdm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pdm\pdm\pdm_vector.c">
+      <Filter>pdm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pdm\pdm\pdm.c">
+      <Filter>pdm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pdm\pdm\pdm_allocator.c">
+      <Filter>pdm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pdm\pdm\pdm_compare.c">
+      <Filter>pdm</Filter>
+    </ClCompile>
+    <ClCompile Include="cppunit_test\tester.cpp">
+      <Filter>cppunit_test</Filter>
+    </ClCompile>
+    <ClCompile Include="cppunit_test\testsuite_pdm.cpp">
+      <Filter>cppunit_test</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

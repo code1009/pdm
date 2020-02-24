@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pdm", "pdm\pdm.vcxproj", "{BB00433F-26B2-4BCF-A4DD-AA2A87A1FF41}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_pdm", "test_pdm\test_pdm.vcxproj", "{1232045D-0976-4B21-A784-28D86159737A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB00433F-26B2-4BCF-A4DD-AA2A87A1FF41}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BB00433F-26B2-4BCF-A4DD-AA2A87A1FF41}.Debug|Win32.Build.0 = Debug|Win32
+		{BB00433F-26B2-4BCF-A4DD-AA2A87A1FF41}.Release|Win32.ActiveCfg = Release|Win32
+		{BB00433F-26B2-4BCF-A4DD-AA2A87A1FF41}.Release|Win32.Build.0 = Release|Win32
+		{1232045D-0976-4B21-A784-28D86159737A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1232045D-0976-4B21-A784-28D86159737A}.Debug|Win32.Build.0 = Debug|Win32
+		{1232045D-0976-4B21-A784-28D86159737A}.Release|Win32.ActiveCfg = Release|Win32
+		{1232045D-0976-4B21-A784-28D86159737A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
