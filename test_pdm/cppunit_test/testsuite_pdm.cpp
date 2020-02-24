@@ -1,9 +1,9 @@
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
 #include <cppunit/CompilerOutputter.h>
-#include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/ui/text/TestRunner.h>
 #include <cppunit/extensions/HelperMacros.h>
+#include <cppunit/extensions/TestFactoryRegistry.h>
 
 //===========================================================================
 #include"../stdafx.h"
