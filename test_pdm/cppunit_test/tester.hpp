@@ -11,6 +11,11 @@ public:
 	virtual ~tester();
 
 public:
-	int run (void);
+	void run (void);
+
+public:
+	int run_and_report_console (void);
+	int test_and_report_xml    (void);
 };
+
 

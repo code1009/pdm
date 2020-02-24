@@ -3,22 +3,17 @@
 #include <stdio.h>
 
 //===========================================================================
-#include <cppunit/CompilerOutputter.h>
-#include <cppunit/extensions/TestFactoryRegistry.h>
-#include <cppunit/ui/text/TestRunner.h>
-#include <cppunit/XmlOutputter.h>
-
 #include <cppunit/TestCase.h>
 #include <cppunit/TestFixture.h>
-#include <cppunit/ui/text/TextTestRunner.h>
-#include <cppunit/extensions/HelperMacros.h>
-#include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/TestResult.h>
 #include <cppunit/TestResultCollector.h>
 #include <cppunit/TestRunner.h>
 #include <cppunit/BriefTestProgressListener.h>
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/XmlOutputter.h>
+#include <cppunit/ui/text/TestRunner.h>
+#include <cppunit/extensions/HelperMacros.h>
+#include <cppunit/extensions/TestFactoryRegistry.h>
 
 
 //===========================================================================
@@ -28,7 +23,7 @@
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-// include= D:\Development\SDK\cppunit\cppunit-1.13.2\include
+// include= D:/Development/SDK/cppunit/cppunit-1.13.2/include
 // lib    = D:/Development/SDK/cppunit/cppunit-1.13.2/src/cppunit/Debug/
 #pragma comment(lib, "D:/Development/SDK/cppunit/cppunit-1.13.2/src/cppunit/Debug/cppunitd.lib")
 
@@ -45,40 +40,42 @@ tester::~tester()
 }
 
 //===========================================================================
-#if 0
-
-int tester::run(void)
+void tester::run (void)
 {
-    CppUnit::TextUi::TestRunner runner;
+	test_and_report_xml();
+}
 
-    CppUnit::Test*      suite;
+//===========================================================================
+int tester::run_and_report_console(void)
+{
+	CppUnit::TextUi::TestRunner runner;
+
+	CppUnit::Test*      suite;
 	CppUnit::Outputter* outputter;
 
 	bool wasSucessful;
 
-    
+
 	CppUnit::TestFactoryRegistry &registry = CppUnit::TestFactoryRegistry::getRegistry();
 
 
-    suite = registry.makeTest();
+	suite = registry.makeTest();
 
-    runner.addTest( suite );
+	runner.addTest(suite);
 
-	outputter = new CppUnit::CompilerOutputter( &runner.result(),  CppUnit::stdCOut() );
-    runner.setOutputter( outputter );
+	outputter = new CppUnit::CompilerOutputter(&runner.result(), CppUnit::stdCOut());
+	runner.setOutputter(outputter);
 
 
-    // Run the test.
-    wasSucessful = runner.run();
+	// Run the test.
+	wasSucessful = runner.run();
 
-    // Return error code 1 if the one of test failed.
+	// Return error code 1 if the one of test failed.
 
-    return wasSucessful ? 0 : 1;
+	return wasSucessful ? 0 : 1;
 }
 
-#else
-
-int tester::run(void)
+int tester::test_and_report_xml (void)
 {
 	CppUnit::TestResult testresult;
 
@@ -122,6 +119,5 @@ int tester::run(void)
 	return collectedresults.wasSuccessful() ? 0 : 1;
 }
 
-#endif
 
 
