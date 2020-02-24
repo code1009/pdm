@@ -16,8 +16,15 @@
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-typedef pdm_bool_t (*pdm_less_t )(pdm_pointer_t left, pdm_pointer_t right);
 typedef pdm_bool_t (*pdm_equal_t)(pdm_pointer_t left, pdm_pointer_t right);
+typedef pdm_bool_t (*pdm_less_t )(pdm_pointer_t left, pdm_pointer_t right);
+
+
+//===========================================================================
+pdm_bool_t pdm_equal_int    (pdm_pointer_t left, pdm_pointer_t right);
+pdm_bool_t pdm_equal_uint   (pdm_pointer_t left, pdm_pointer_t right);
+pdm_bool_t pdm_equal_int16  (pdm_pointer_t left, pdm_pointer_t right);
+pdm_bool_t pdm_equal_uint16 (pdm_pointer_t left, pdm_pointer_t right);
 
 
 //===========================================================================

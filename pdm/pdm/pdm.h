@@ -13,6 +13,14 @@
 ** - Version: 1.0.0.0
 ** - First release
 **
+** -------------------------------------------------------------------------
+** container:                  pdm_container_t
+**     sequence container
+**         vector:             pdm_vector_t
+**         stack :             pdm_stack_t
+**     associative container
+**         map:                pdm_map_t
+**
 ****************************************************************************/
 
 
@@ -33,9 +41,6 @@ typedef unsigned int  pdm_bool_t   ;
 typedef unsigned char pdm_byte_t   ;
 
 typedef char          pdm_char_t   ;
-
-typedef float         pdm_float_t  ;
-typedef double        pdm_double_t ;
 
 typedef void*         pdm_pointer_t;
 typedef unsigned int  pdm_size_t   ;
@@ -72,7 +77,6 @@ typedef unsigned int  pdm_size_t   ;
 #include "pdm_memory.h"
 #include "pdm_allocator.h"
 #include "pdm_core.h"
-#include "pdm_element.h"
 #include "pdm_container.h"
 #include "pdm_compare.h"
 #include "pdm_vector.h"
@@ -85,7 +89,7 @@ typedef unsigned int  pdm_size_t   ;
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-PDM_API void pdm_test (void);
+PDM_API pdm_uint_t pdm_get_version (void);
 
 
 

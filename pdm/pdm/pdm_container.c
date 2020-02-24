@@ -104,7 +104,7 @@ void pdm_container_pop_front (pdm_container_t* ctx)
 }
 
 //===========================================================================
-static void pdm_container_move (pdm_container_t* ctx, pdm_size_t index_to, pdm_size_t index_from)
+void pdm_container_move (pdm_container_t* ctx, pdm_size_t index_to, pdm_size_t index_from)
 {
 	pdm_byte_t* e_to;
 	pdm_byte_t* e_from;
@@ -129,7 +129,7 @@ static void pdm_container_move (pdm_container_t* ctx, pdm_size_t index_to, pdm_s
 	/*return PDM_TRUE;*/
 }
 
-static void pdm_container_move_down (pdm_container_t* ctx, pdm_size_t index)
+void pdm_container_move_down (pdm_container_t* ctx, pdm_size_t index)
 {
 	pdm_size_t count;
 	pdm_size_t i;
@@ -151,7 +151,7 @@ static void pdm_container_move_down (pdm_container_t* ctx, pdm_size_t index)
 	/*return PDM_TRUE;*/
 }
 
-static void pdm_container_move_up (pdm_container_t* ctx, pdm_size_t index)
+void pdm_container_move_up (pdm_container_t* ctx, pdm_size_t index)
 {
 	pdm_size_t count;
 	pdm_size_t i;
@@ -277,6 +277,22 @@ pdm_pointer_t pdm_container_at (pdm_container_t* ctx, pdm_size_t index)
 
 	e = PDM_NULL_POINTER;
 	if (index < ctx->element_count)
+	{
+		e = ctx->memory.pointer + (index*ctx->element_aligned_size);
+	}
+
+
+	return e;
+}
+
+//===========================================================================
+pdm_pointer_t pdm_container_memory (pdm_container_t* ctx, pdm_size_t index)
+{
+	pdm_byte_t* e;
+
+
+	e = PDM_NULL_POINTER;
+	if (index < ctx->element_max_count)
 	{
 		e = ctx->memory.pointer + (index*ctx->element_aligned_size);
 	}

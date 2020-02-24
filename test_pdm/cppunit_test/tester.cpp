@@ -111,7 +111,7 @@ int tester::run(void)
 
 
 	// Output XML for Jenkins CPPunit plugin
-	std::ofstream xmlFileOut("cppunit-report.xml");
+	std::ofstream xmlFileOut("cppunit-report.pdm.xml");
 
 	CppUnit::XmlOutputter xmlOut(&collectedresults, xmlFileOut, std::string("UTF-8"));
 	xmlOut.setStyleSheet("cppunit-report.xsl");

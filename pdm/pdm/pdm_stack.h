@@ -8,6 +8,8 @@
 ** Created by MOON, Eui-kwon.
 ** Created on Jan-10th, 2020.
 **
+** Sequence container
+**
 ****************************************************************************/
 
 

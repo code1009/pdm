@@ -27,36 +27,6 @@
     <ClInclude Include="targetver.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="pdm\pdm_allocator.h">
-      <Filter>pdm</Filter>
-    </ClInclude>
-    <ClInclude Include="pdm\pdm_compare.h">
-      <Filter>pdm</Filter>
-    </ClInclude>
-    <ClInclude Include="pdm\pdm_container.h">
-      <Filter>pdm</Filter>
-    </ClInclude>
-    <ClInclude Include="pdm\pdm_core.h">
-      <Filter>pdm</Filter>
-    </ClInclude>
-    <ClInclude Include="pdm\pdm_element.h">
-      <Filter>pdm</Filter>
-    </ClInclude>
-    <ClInclude Include="pdm\pdm_map.h">
-      <Filter>pdm</Filter>
-    </ClInclude>
-    <ClInclude Include="pdm\pdm_memory.h">
-      <Filter>pdm</Filter>
-    </ClInclude>
-    <ClInclude Include="pdm\pdm_stack.h">
-      <Filter>pdm</Filter>
-    </ClInclude>
-    <ClInclude Include="pdm\pdm_vector.h">
-      <Filter>pdm</Filter>
-    </ClInclude>
-    <ClInclude Include="pdm\pdm.h">
-      <Filter>pdm</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -64,33 +34,6 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="pdm\pdm_compare.c">
-      <Filter>pdm</Filter>
-    </ClCompile>
-    <ClCompile Include="pdm\pdm_container.c">
-      <Filter>pdm</Filter>
-    </ClCompile>
-    <ClCompile Include="pdm\pdm_core.c">
-      <Filter>pdm</Filter>
-    </ClCompile>
-    <ClCompile Include="pdm\pdm_element.c">
-      <Filter>pdm</Filter>
-    </ClCompile>
-    <ClCompile Include="pdm\pdm_memory.c">
-      <Filter>pdm</Filter>
-    </ClCompile>
-    <ClCompile Include="pdm\pdm_stack.c">
-      <Filter>pdm</Filter>
-    </ClCompile>
-    <ClCompile Include="pdm\pdm_vector.c">
-      <Filter>pdm</Filter>
-    </ClCompile>
-    <ClCompile Include="pdm\pdm.c">
-      <Filter>pdm</Filter>
-    </ClCompile>
-    <ClCompile Include="pdm\pdm_allocator.c">
-      <Filter>pdm</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -81,30 +81,11 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pdm\pdm.h" />
-    <ClInclude Include="pdm\pdm_allocator.h" />
-    <ClInclude Include="pdm\pdm_compare.h" />
-    <ClInclude Include="pdm\pdm_container.h" />
-    <ClInclude Include="pdm\pdm_core.h" />
-    <ClInclude Include="pdm\pdm_element.h" />
-    <ClInclude Include="pdm\pdm_map.h" />
-    <ClInclude Include="pdm\pdm_memory.h" />
-    <ClInclude Include="pdm\pdm_stack.h" />
-    <ClInclude Include="pdm\pdm_vector.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="pdm\pdm.c" />
-    <ClCompile Include="pdm\pdm_allocator.c" />
-    <ClCompile Include="pdm\pdm_compare.c" />
-    <ClCompile Include="pdm\pdm_container.c" />
-    <ClCompile Include="pdm\pdm_core.c" />
-    <ClCompile Include="pdm\pdm_element.c" />
-    <ClCompile Include="pdm\pdm_memory.c" />
-    <ClCompile Include="pdm\pdm_stack.c" />
-    <ClCompile Include="pdm\pdm_vector.c" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

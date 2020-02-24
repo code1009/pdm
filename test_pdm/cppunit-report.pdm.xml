@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding='UTF-8' standalone='yes' ?>
+<?xml-stylesheet type="text/xsl" href="cppunit-report.xsl"?>
+<TestRun>
+  <FailedTests></FailedTests>
+  <SuccessfulTests>
+    <Test id="1">
+      <Name>testsuite_pdm_container::test_push_back</Name>
+    </Test>
+    <Test id="2">
+      <Name>testsuite_pdm_container::test_pop_back</Name>
+    </Test>
+    <Test id="3">
+      <Name>testsuite_pdm_container::test_push_front</Name>
+    </Test>
+    <Test id="4">
+      <Name>testsuite_pdm_container::test_pop_front</Name>
+    </Test>
+    <Test id="5">
+      <Name>testsuite_pdm_container::test_erase</Name>
+    </Test>
+    <Test id="6">
+      <Name>testsuite_pdm_container::test_set</Name>
+    </Test>
+    <Test id="7">
+      <Name>testsuite_pdm_container::test_get</Name>
+    </Test>
+    <Test id="8">
+      <Name>testsuite_pdm_map::test_insert</Name>
+    </Test>
+    <Test id="9">
+      <Name>testsuite_pdm_map::test_erase</Name>
+    </Test>
+    <Test id="10">
+      <Name>testsuite_pdm_map::test_set</Name>
+    </Test>
+    <Test id="11">
+      <Name>testsuite_pdm_map::test_get</Name>
+    </Test>
+    <Test id="12">
+      <Name>testsuite_pdm_map::test_find</Name>
+    </Test>
+    <Test id="13">
+      <Name>testsuite_pdm_map::test_first_erase</Name>
+    </Test>
+  </SuccessfulTests>
+  <Statistics>
+    <Tests>13</Tests>
+    <FailuresTotal>0</FailuresTotal>
+    <Errors>0</Errors>
+    <Failures>0</Failures>
+  </Statistics>
+</TestRun>

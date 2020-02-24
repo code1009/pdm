@@ -89,7 +89,6 @@
     <ClInclude Include="..\pdm\pdm\pdm_compare.h" />
     <ClInclude Include="..\pdm\pdm\pdm_container.h" />
     <ClInclude Include="..\pdm\pdm\pdm_core.h" />
-    <ClInclude Include="..\pdm\pdm\pdm_element.h" />
     <ClInclude Include="..\pdm\pdm\pdm_map.h" />
     <ClInclude Include="..\pdm\pdm\pdm_memory.h" />
     <ClInclude Include="..\pdm\pdm\pdm_stack.h" />
@@ -105,14 +104,20 @@
     <ClCompile Include="..\pdm\pdm\pdm_compare.c" />
     <ClCompile Include="..\pdm\pdm\pdm_container.c" />
     <ClCompile Include="..\pdm\pdm\pdm_core.c" />
-    <ClCompile Include="..\pdm\pdm\pdm_element.c" />
+    <ClCompile Include="..\pdm\pdm\pdm_map.c" />
     <ClCompile Include="..\pdm\pdm\pdm_memory.c" />
     <ClCompile Include="..\pdm\pdm\pdm_stack.c" />
     <ClCompile Include="..\pdm\pdm\pdm_vector.c" />
     <ClCompile Include="cppunit_test\tester.cpp" />
     <ClCompile Include="cppunit_test\testsuite_pdm.cpp" />
+    <ClCompile Include="cppunit_test\testsuite_pdm_container.cpp" />
+    <ClCompile Include="cppunit_test\testsuite_pdm_map.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="test_pdm.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="cppunit-report.pdm.xml" />
+    <Xml Include="cppunit-report.xsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

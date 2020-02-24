@@ -63,3 +63,5 @@ void testsuite_pdm::test_2(void)
 
 	CPPUNIT_ASSERT(1);
 }
+
+

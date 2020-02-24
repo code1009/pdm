@@ -52,7 +52,11 @@ PDM_API void          pdm_container_set       (pdm_container_t* ctx, pdm_size_t 
 PDM_API pdm_bool_t    pdm_container_get       (pdm_container_t* ctx, pdm_size_t index, pdm_pointer_t pointer);
 PDM_API pdm_pointer_t pdm_container_at        (pdm_container_t* ctx, pdm_size_t index);
 
+PDM_API void pdm_container_move      (pdm_container_t* ctx, pdm_size_t index_to, pdm_size_t index_from);
+PDM_API void pdm_container_move_down (pdm_container_t* ctx, pdm_size_t index);
+PDM_API void pdm_container_move_up   (pdm_container_t* ctx, pdm_size_t index);
 
+PDM_API pdm_pointer_t pdm_container_memory (pdm_container_t* ctx, pdm_size_t index);
 
 
 
