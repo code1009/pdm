@@ -21,15 +21,15 @@
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-#define PDM_EQUAL(T,x,y) \
+#define PDM_EQUAL(T,a,b) \
 	T* ap;                  \
 	T* bp;                  \
 	T  av;                  \
 	T  bv;                  \
 	                        \
 	                        \
-	ap = (T*)left;          \
-	bp = (T*)right;         \
+	ap = (T*)a;             \
+	bp = (T*)b;             \
 	av = *ap;               \
 	bv = *bp;               \
 	                        \
@@ -42,15 +42,15 @@
 	return PDM_FALSE
 
 
-#define PDM_LESS(T,x,y) \
+#define PDM_LESS(T,a,b) \
 	T* ap;                  \
 	T* bp;                  \
 	T  av;                  \
 	T  bv;                  \
 	                        \
 	                        \
-	ap = (T*)left;          \
-	bp = (T*)right;         \
+	ap = (T*)a;             \
+	bp = (T*)b;             \
 	av = *ap;               \
 	bv = *bp;               \
 	                        \
