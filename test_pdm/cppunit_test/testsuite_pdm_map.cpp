@@ -281,7 +281,7 @@ void testsuite_pdm_map::fill_map (pdm_map_t& map)
 //===========================================================================
 void testsuite_pdm_map::test_insert(void)
 {
-	pdm_map_t&  map = *_sut_map;
+	pdm_map_t& map = *_sut_map;
 
 	first_t  first;
 	second_t second;
