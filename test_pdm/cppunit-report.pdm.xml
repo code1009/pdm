@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding='UTF-8' standalone='yes' ?>
 <?xml-stylesheet type="text/xsl" href="cppunit-report.xsl"?>
 <TestRun>
-  <FailedTests>
-    <FailedTest id="4">
-      <Name>testsuite_pdm_const_string::test_compare</Name>
-      <FailureType>Assertion</FailureType>
-      <Location>
-        <File>d:\development\project\pdm\test_pdm\cppunit_test\testsuite_pdm_const_string.cpp</File>
-        <Line>226</Line>
-      </Location>
-      <Message>assertion failed
-- Expression: 1==pdm_const_string_compare(&amp;const_string, &amp;n_const_string)
-</Message>
-    </FailedTest>
-  </FailedTests>
+  <FailedTests></FailedTests>
   <SuccessfulTests>
     <Test id="1">
       <Name>testsuite_pdm_const_string::test_length</Name>
@@ -23,6 +11,9 @@
     </Test>
     <Test id="3">
       <Name>testsuite_pdm_const_string::test_empty</Name>
+    </Test>
+    <Test id="4">
+      <Name>testsuite_pdm_const_string::test_compare</Name>
     </Test>
     <Test id="5">
       <Name>testsuite_pdm_container::test_push_back</Name>
@@ -61,7 +52,7 @@
       <Name>testsuite_pdm_map::test_find</Name>
     </Test>
     <Test id="17">
-      <Name>testsuite_pdm_map::test_first_erase</Name>
+      <Name>testsuite_pdm_map::test_erase_by_first</Name>
     </Test>
     <Test id="18">
       <Name>testsuite_pdm_map_and_const_string::test_insert</Name>
@@ -79,13 +70,13 @@
       <Name>testsuite_pdm_map_and_const_string::test_find</Name>
     </Test>
     <Test id="23">
-      <Name>testsuite_pdm_map_and_const_string::test_first_erase</Name>
+      <Name>testsuite_pdm_map_and_const_string::test_erase_by_first</Name>
     </Test>
   </SuccessfulTests>
   <Statistics>
     <Tests>23</Tests>
-    <FailuresTotal>1</FailuresTotal>
+    <FailuresTotal>0</FailuresTotal>
     <Errors>0</Errors>
-    <Failures>1</Failures>
+    <Failures>0</Failures>
   </Statistics>
 </TestRun>

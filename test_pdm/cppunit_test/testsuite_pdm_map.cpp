@@ -132,7 +132,7 @@ private:
 	CPPUNIT_TEST(test_set);
 	CPPUNIT_TEST(test_get);
 	CPPUNIT_TEST(test_find);
-	CPPUNIT_TEST(test_first_erase);
+	CPPUNIT_TEST(test_erase_by_first);
 	CPPUNIT_TEST_SUITE_END();
 
 public:
@@ -141,7 +141,7 @@ public:
 	void test_set(void);
 	void test_get(void);
 	void test_find(void);
-	void test_first_erase(void);
+	void test_erase_by_first(void);
 
 public:
 	void fill_map (pdm_map_t& map);
@@ -487,7 +487,7 @@ void testsuite_pdm_map::test_find(void)
 	CPPUNIT_ASSERT(second_pointer->value3 == 0u);
 }
 
-void testsuite_pdm_map::test_first_erase(void)
+void testsuite_pdm_map::test_erase_by_first(void)
 {
 	pdm_map_t& map = *_sut_map;
 
@@ -507,12 +507,12 @@ void testsuite_pdm_map::test_first_erase(void)
 
 	//-----------------------------------------------------------------------
 	first .value1 = 999;
-	pdm_map_first_erase(&map, &first);
+	pdm_map_erase_by_first(&map, &first);
 	CPPUNIT_ASSERT(pdm_map_count(&map)==4);
 
 
 	first .value1 = 20;
-	pdm_map_first_erase(&map, &first);
+	pdm_map_erase_by_first(&map, &first);
 	CPPUNIT_ASSERT(pdm_map_count(&map)==3);
 
 

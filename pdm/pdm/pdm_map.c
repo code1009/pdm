@@ -300,7 +300,7 @@ pdm_pointer_t pdm_map_second (pdm_map_t* ctx, pdm_pointer_t pointer)
 	return second_pointer;
 }
 
-void pdm_map_first_erase (pdm_map_t* ctx, pdm_pointer_t first_pointer)
+void pdm_map_erase_by_first (pdm_map_t* ctx, pdm_pointer_t first_pointer)
 {
 	pdm_int_t count;
 	pdm_int_t low  ;
