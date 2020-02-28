@@ -18,10 +18,7 @@
 //===========================================================================
 typedef struct _pdm_map_t
 {
-	pdm_container_t container;
-
-	pdm_equal_t first_equal;
-	pdm_less_t  first_less;
+	pdm_set_t set;
 
 	pdm_size_t first_size;
 	pdm_size_t second_size;
