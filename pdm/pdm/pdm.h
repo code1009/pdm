@@ -20,6 +20,7 @@
 **         vector:             pdm_vector_t
 **         stack :             pdm_stack_t
 **     associative container
+**         set:                pdm_set_t
 **         map:                pdm_map_t
 **
 ****************************************************************************/
