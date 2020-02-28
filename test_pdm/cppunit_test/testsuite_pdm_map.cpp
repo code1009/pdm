@@ -27,6 +27,7 @@ typedef struct _first_t
 
 
 
+/////////////////////////////////////////////////////////////////////////////
 //===========================================================================
 static pdm_bool_t element_first_equal (pdm_pointer_t left, pdm_pointer_t right)
 {

@@ -69,17 +69,17 @@
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-pdm_bool_t pdm_equal_int    (pdm_pointer_t left, pdm_pointer_t right) { PDM_EQUAL(pdm_int_t  , left, right); }
-pdm_bool_t pdm_equal_int32  (pdm_pointer_t left, pdm_pointer_t right) { PDM_EQUAL(pdm_int32_t, left, right); }
-pdm_bool_t pdm_equal_int16  (pdm_pointer_t left, pdm_pointer_t right) { PDM_EQUAL(pdm_int16_t, left, right); }
-pdm_bool_t pdm_equal_int8   (pdm_pointer_t left, pdm_pointer_t right) { PDM_EQUAL(pdm_int8_t , left, right); }
+pdm_bool_t pdm_equal_int    (pdm_pointer_t left, pdm_pointer_t right) { PDM_EQUAL(pdm_int_t   , left, right); }
+pdm_bool_t pdm_equal_int32  (pdm_pointer_t left, pdm_pointer_t right) { PDM_EQUAL(pdm_int32_t , left, right); }
+pdm_bool_t pdm_equal_int16  (pdm_pointer_t left, pdm_pointer_t right) { PDM_EQUAL(pdm_int16_t , left, right); }
+pdm_bool_t pdm_equal_int8   (pdm_pointer_t left, pdm_pointer_t right) { PDM_EQUAL(pdm_int8_t  , left, right); }
 
 pdm_bool_t pdm_equal_uint   (pdm_pointer_t left, pdm_pointer_t right) { PDM_EQUAL(pdm_uint_t  , left, right); }
 pdm_bool_t pdm_equal_uint32 (pdm_pointer_t left, pdm_pointer_t right) { PDM_EQUAL(pdm_uint32_t, left, right); }
 pdm_bool_t pdm_equal_uint16 (pdm_pointer_t left, pdm_pointer_t right) { PDM_EQUAL(pdm_uint16_t, left, right); }
 pdm_bool_t pdm_equal_uint8  (pdm_pointer_t left, pdm_pointer_t right) { PDM_EQUAL(pdm_uint8_t , left, right); }
 
-pdm_bool_t pdm_equal_char (pdm_pointer_t left, pdm_pointer_t right) { PDM_EQUAL(pdm_char_t , left, right); }
+pdm_bool_t pdm_equal_char   (pdm_pointer_t left, pdm_pointer_t right) { PDM_EQUAL(pdm_char_t  , left, right); }
 
 pdm_bool_t pdm_equal_const_string (pdm_pointer_t left, pdm_pointer_t right)
 {
@@ -103,17 +103,17 @@ pdm_bool_t pdm_equal_const_string (pdm_pointer_t left, pdm_pointer_t right)
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-pdm_bool_t pdm_less_int    (pdm_pointer_t left, pdm_pointer_t right) { PDM_LESS(pdm_int_t  , left, right); }
-pdm_bool_t pdm_less_int32  (pdm_pointer_t left, pdm_pointer_t right) { PDM_LESS(pdm_int32_t, left, right); }
-pdm_bool_t pdm_less_int16  (pdm_pointer_t left, pdm_pointer_t right) { PDM_LESS(pdm_int16_t, left, right); }
-pdm_bool_t pdm_less_int8   (pdm_pointer_t left, pdm_pointer_t right) { PDM_LESS(pdm_int8_t , left, right); }
+pdm_bool_t pdm_less_int    (pdm_pointer_t left, pdm_pointer_t right) { PDM_LESS(pdm_int_t   , left, right); }
+pdm_bool_t pdm_less_int32  (pdm_pointer_t left, pdm_pointer_t right) { PDM_LESS(pdm_int32_t , left, right); }
+pdm_bool_t pdm_less_int16  (pdm_pointer_t left, pdm_pointer_t right) { PDM_LESS(pdm_int16_t , left, right); }
+pdm_bool_t pdm_less_int8   (pdm_pointer_t left, pdm_pointer_t right) { PDM_LESS(pdm_int8_t  , left, right); }
 
 pdm_bool_t pdm_less_uint   (pdm_pointer_t left, pdm_pointer_t right) { PDM_LESS(pdm_uint_t  , left, right); }
 pdm_bool_t pdm_less_uint32 (pdm_pointer_t left, pdm_pointer_t right) { PDM_LESS(pdm_uint32_t, left, right); }
 pdm_bool_t pdm_less_uint16 (pdm_pointer_t left, pdm_pointer_t right) { PDM_LESS(pdm_uint16_t, left, right); }
 pdm_bool_t pdm_less_uint8  (pdm_pointer_t left, pdm_pointer_t right) { PDM_LESS(pdm_uint8_t , left, right); }
 
-pdm_bool_t pdm_less_char (pdm_pointer_t left, pdm_pointer_t right) { PDM_LESS(pdm_char_t , left, right); }
+pdm_bool_t pdm_less_char   (pdm_pointer_t left, pdm_pointer_t right) { PDM_LESS(pdm_char_t  , left, right); }
 
 pdm_bool_t pdm_less_const_string (pdm_pointer_t left, pdm_pointer_t right)
 {
@@ -131,5 +131,7 @@ pdm_bool_t pdm_less_const_string (pdm_pointer_t left, pdm_pointer_t right)
 
 	return PDM_FALSE;
 }
+
+
 
 

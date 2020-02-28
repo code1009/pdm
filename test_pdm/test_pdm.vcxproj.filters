@@ -57,6 +57,9 @@
     <ClInclude Include="..\pdm\pdm\pdm_const_string.h">
       <Filter>pdm</Filter>
     </ClInclude>
+    <ClInclude Include="..\pdm\pdm\pdm_set.h">
+      <Filter>pdm</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\pdm\pdm\pdm_container.c">
@@ -111,6 +114,12 @@
       <Filter>cppunit_test</Filter>
     </ClCompile>
     <ClCompile Include="cppunit_test\testsuite_pdm_map_and_const_string.cpp">
+      <Filter>cppunit_test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pdm\pdm\pdm_set.c">
+      <Filter>pdm</Filter>
+    </ClCompile>
+    <ClCompile Include="cppunit_test\testsuite_pdm_set.cpp">
       <Filter>cppunit_test</Filter>
     </ClCompile>
   </ItemGroup>

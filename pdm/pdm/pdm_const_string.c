@@ -61,6 +61,17 @@ void pdm_const_string_destroy (pdm_const_string_t* ctx)
 }
 
 //===========================================================================
+pdm_bool_t pdm_const_string_empty (pdm_const_string_t* ctx)
+{
+	if (0u==ctx->c_str_length)
+	{
+		return PDM_TRUE;
+	}
+
+	return PDM_FALSE;
+}
+
+//===========================================================================
 pdm_size_t pdm_const_string_length (pdm_const_string_t* ctx)
 {
 	return ctx->c_str_length;
@@ -74,16 +85,6 @@ pdm_char_t* pdm_const_string_c_str (pdm_const_string_t* ctx)
 	pointer = (pdm_char_t*)ctx->container.memory.pointer;
 
 	return pointer;
-}
-
-pdm_bool_t pdm_const_string_empty (pdm_const_string_t* ctx)
-{
-	if (0u==ctx->c_str_length)
-	{
-		return PDM_TRUE;
-	}
-
-	return PDM_FALSE;
 }
 
 pdm_int_t pdm_const_string_compare (pdm_const_string_t* ctx, pdm_const_string_t* s)

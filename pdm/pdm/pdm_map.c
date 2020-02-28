@@ -66,6 +66,16 @@ void pdm_map_clear (pdm_map_t* ctx)
 }
 
 //===========================================================================
+pdm_pointer_t pdm_map_at (pdm_map_t* ctx, pdm_size_t index)
+{
+	return pdm_container_at(&ctx->container, index);
+}
+
+void pdm_map_erase (pdm_map_t* ctx, pdm_size_t index)
+{
+	pdm_container_erase(&ctx->container, index);
+}
+
 pdm_bool_t pdm_map_insert (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer_t second_pointer)
 {
 	pdm_int_t count;
@@ -173,11 +183,6 @@ pdm_bool_t pdm_map_insert (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_poin
 	return PDM_TRUE;
 }
 
-void pdm_map_erase (pdm_map_t* ctx, pdm_size_t index)
-{
-	pdm_container_erase(&ctx->container, index);
-}
-
 //===========================================================================
 pdm_bool_t pdm_map_set (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer_t second_pointer)
 {
@@ -226,12 +231,6 @@ pdm_bool_t pdm_map_get (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer
 
 
 	return PDM_TRUE;
-}
-
-//===========================================================================
-pdm_pointer_t pdm_map_at (pdm_map_t* ctx, pdm_size_t index)
-{
-	return pdm_container_at(&ctx->container, index);
 }
 
 //===========================================================================

@@ -85,6 +85,7 @@ typedef unsigned int  pdm_size_t   ;
 #include "pdm_const_string.h"
 #include "pdm_vector.h"
 #include "pdm_stack.h"
+#include "pdm_set.h"
 #include "pdm_map.h"
 
 

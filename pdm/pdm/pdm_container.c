@@ -80,6 +80,117 @@ void pdm_container_clear (pdm_container_t* ctx)
 }
 
 //===========================================================================
+pdm_pointer_t pdm_container_at (pdm_container_t* ctx, pdm_size_t index)
+{
+	pdm_byte_t* e;
+
+
+	e = PDM_NULL_POINTER;
+	if (index < ctx->element_count)
+	{
+		e = ctx->memory.pointer + (index*ctx->element_aligned_size);
+	}
+
+
+	return e;
+}
+
+void pdm_container_erase (pdm_container_t* ctx, pdm_size_t index)
+{
+	if (ctx->element_count == 0u)
+	{
+		return /*PDM_FALSE*/;
+	}
+	if (index>=ctx->element_count)
+	{
+		return /*PDM_FALSE*/;
+	}
+
+
+	pdm_container_move_up(ctx, index);
+
+
+	ctx->element_count--;
+
+
+	/*return PDM_TRUE;*/
+}
+
+pdm_bool_t pdm_container_insert (pdm_container_t* ctx, pdm_size_t index, pdm_pointer_t pointer)
+{
+	pdm_byte_t* e;
+
+
+	if (ctx->element_count >= ctx->element_max_count)
+	{
+		return PDM_FALSE;
+	}
+	if (index > ctx->element_count)
+	{
+		return PDM_FALSE;
+	}
+
+
+	if (ctx->element_count>0u)
+	{
+		pdm_container_move_down(ctx, index);
+	}
+
+
+	e = ctx->memory.pointer + (index*ctx->element_aligned_size);
+	pdm_copy_memory(e, pointer, ctx->element_size);
+	ctx->element_count++;
+
+
+	return PDM_TRUE;
+}
+
+//===========================================================================
+void pdm_container_set (pdm_container_t* ctx, pdm_size_t index, pdm_pointer_t pointer)
+{
+	pdm_byte_t* e;
+
+
+	if (ctx->element_count >= ctx->element_max_count)
+	{
+		return /*PDM_FALSE*/;
+	}
+	if (index >= ctx->element_count)
+	{
+		return /*PDM_FALSE*/;
+	}
+
+
+	e = ctx->memory.pointer + (index*ctx->element_aligned_size);
+	pdm_copy_memory(e, pointer, ctx->element_size);
+
+
+	/*return PDM_TRUE;*/
+}
+
+pdm_bool_t pdm_container_get (pdm_container_t* ctx, pdm_size_t index, pdm_pointer_t pointer)
+{
+	pdm_byte_t* e;
+
+
+	if (ctx->element_count >= ctx->element_max_count)
+	{
+		return PDM_FALSE;
+	}
+	if (index >= ctx->element_count)
+	{
+		return PDM_FALSE;
+	}
+
+
+	e = ctx->memory.pointer + (index*ctx->element_aligned_size);
+	pdm_copy_memory(pointer, e, ctx->element_size);
+
+
+	return PDM_TRUE;
+}
+
+//===========================================================================
 pdm_bool_t pdm_container_push_back (pdm_container_t* ctx, pdm_pointer_t pointer)
 {
 	return pdm_container_insert(ctx, ctx->element_count, pointer);
@@ -101,6 +212,22 @@ pdm_bool_t pdm_container_push_front (pdm_container_t* ctx, pdm_pointer_t pointer
 void pdm_container_pop_front (pdm_container_t* ctx)
 {
 	pdm_container_erase(ctx, 0u);
+}
+
+//===========================================================================
+pdm_pointer_t pdm_container_memory (pdm_container_t* ctx, pdm_size_t index)
+{
+	pdm_byte_t* e;
+
+
+	e = PDM_NULL_POINTER;
+	if (index < ctx->element_max_count)
+	{
+		e = ctx->memory.pointer + (index*ctx->element_aligned_size);
+	}
+
+
+	return e;
 }
 
 //===========================================================================
@@ -171,134 +298,6 @@ void pdm_container_move_up (pdm_container_t* ctx, pdm_size_t index)
 
 
 	/*return PDM_TRUE;*/
-}
-
-//===========================================================================
-pdm_bool_t pdm_container_insert (pdm_container_t* ctx, pdm_size_t index, pdm_pointer_t pointer)
-{
-	pdm_byte_t* e;
-
-
-	if (ctx->element_count >= ctx->element_max_count)
-	{
-		return PDM_FALSE;
-	}
-	if (index > ctx->element_count)
-	{
-		return PDM_FALSE;
-	}
-
-
-	if (ctx->element_count>0u)
-	{
-		pdm_container_move_down(ctx, index);
-	}
-
-
-	e = ctx->memory.pointer + (index*ctx->element_aligned_size);
-	pdm_copy_memory(e, pointer, ctx->element_size);
-	ctx->element_count++;
-
-
-	return PDM_TRUE;
-}
-
-void pdm_container_erase (pdm_container_t* ctx, pdm_size_t index)
-{
-	if (ctx->element_count == 0u)
-	{
-		return /*PDM_FALSE*/;
-	}
-	if (index>=ctx->element_count)
-	{
-		return /*PDM_FALSE*/;
-	}
-
-
-	pdm_container_move_up(ctx, index);
-
-
-	ctx->element_count--;
-
-
-	/*return PDM_TRUE;*/
-}
-
-//===========================================================================
-void pdm_container_set (pdm_container_t* ctx, pdm_size_t index, pdm_pointer_t pointer)
-{
-	pdm_byte_t* e;
-
-
-	if (ctx->element_count >= ctx->element_max_count)
-	{
-		return /*PDM_FALSE*/;
-	}
-	if (index >= ctx->element_count)
-	{
-		return /*PDM_FALSE*/;
-	}
-
-
-	e = ctx->memory.pointer + (index*ctx->element_aligned_size);
-	pdm_copy_memory(e, pointer, ctx->element_size);
-
-
-	/*return PDM_TRUE;*/
-}
-
-pdm_bool_t pdm_container_get (pdm_container_t* ctx, pdm_size_t index, pdm_pointer_t pointer)
-{
-	pdm_byte_t* e;
-
-
-	if (ctx->element_count >= ctx->element_max_count)
-	{
-		return PDM_FALSE;
-	}
-	if (index >= ctx->element_count)
-	{
-		return PDM_FALSE;
-	}
-
-
-	e = ctx->memory.pointer + (index*ctx->element_aligned_size);
-	pdm_copy_memory(pointer, e, ctx->element_size);
-
-
-	return PDM_TRUE;
-}
-
-//===========================================================================
-pdm_pointer_t pdm_container_at (pdm_container_t* ctx, pdm_size_t index)
-{
-	pdm_byte_t* e;
-
-
-	e = PDM_NULL_POINTER;
-	if (index < ctx->element_count)
-	{
-		e = ctx->memory.pointer + (index*ctx->element_aligned_size);
-	}
-
-
-	return e;
-}
-
-//===========================================================================
-pdm_pointer_t pdm_container_memory (pdm_container_t* ctx, pdm_size_t index)
-{
-	pdm_byte_t* e;
-
-
-	e = PDM_NULL_POINTER;
-	if (index < ctx->element_max_count)
-	{
-		e = ctx->memory.pointer + (index*ctx->element_aligned_size);
-	}
-
-
-	return e;
 }
 
 

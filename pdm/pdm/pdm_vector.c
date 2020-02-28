@@ -57,6 +57,33 @@ void pdm_vector_clear (pdm_vector_t* ctx)
 }
 
 //===========================================================================
+pdm_pointer_t pdm_vector_at (pdm_vector_t* ctx, pdm_size_t index)
+{
+	return pdm_container_at(&ctx->container, index);
+}
+
+void pdm_vector_erase (pdm_vector_t* ctx, pdm_size_t index)
+{
+	pdm_container_erase(&ctx->container, index);
+}
+
+pdm_bool_t pdm_vector_insert (pdm_vector_t* ctx, pdm_size_t index, pdm_pointer_t pointer)
+{
+	return pdm_container_insert (&ctx->container, index, pointer);
+}
+
+//===========================================================================
+void pdm_vector_set (pdm_vector_t* ctx, pdm_size_t index, pdm_pointer_t pointer)
+{
+	pdm_container_set(&ctx->container, index, pointer);
+}
+
+pdm_bool_t pdm_vector_get (pdm_vector_t* ctx, pdm_size_t index, pdm_pointer_t pointer)
+{
+	return pdm_container_get(&ctx->container, index, pointer);
+}
+
+//===========================================================================
 pdm_bool_t pdm_vector_push_back (pdm_vector_t* ctx, pdm_pointer_t pointer)
 {
 	return pdm_container_push_back(&ctx->container, pointer);
@@ -76,35 +103,6 @@ void pdm_vector_pop_front (pdm_vector_t* ctx)
 {
 	pdm_container_pop_front(&ctx->container);
 }
-
-//===========================================================================
-pdm_bool_t pdm_vector_insert (pdm_vector_t* ctx, pdm_size_t index, pdm_pointer_t pointer)
-{
-	return pdm_container_insert (&ctx->container, index, pointer);
-}
-
-void pdm_vector_erase (pdm_vector_t* ctx, pdm_size_t index)
-{
-	pdm_container_erase(&ctx->container, index);
-}
-
-//===========================================================================
-void pdm_vector_set (pdm_vector_t* ctx, pdm_size_t index, pdm_pointer_t pointer)
-{
-	pdm_container_set(&ctx->container, index, pointer);
-}
-
-pdm_bool_t pdm_vector_get (pdm_vector_t* ctx, pdm_size_t index, pdm_pointer_t pointer)
-{
-	return pdm_container_get(&ctx->container, index, pointer);
-}
-
-//===========================================================================
-pdm_pointer_t pdm_vector_at (pdm_vector_t* ctx, pdm_size_t index)
-{
-	return pdm_container_at(&ctx->container, index);
-}
-
 
 
 

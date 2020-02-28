@@ -44,15 +44,17 @@ PDM_API pdm_bool_t pdm_map_create  (pdm_map_t* ctx, pdm_size_t element_max_count
 
 PDM_API void       pdm_map_destroy (pdm_map_t* ctx);
 
-PDM_API pdm_size_t    pdm_map_count     (pdm_map_t* ctx);
-PDM_API pdm_bool_t    pdm_map_full      (pdm_map_t* ctx);
-PDM_API pdm_bool_t    pdm_map_empty     (pdm_map_t* ctx);
-PDM_API void          pdm_map_clear     (pdm_map_t* ctx);
-PDM_API pdm_bool_t    pdm_map_insert    (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer_t second_pointer);
-PDM_API void          pdm_map_erase     (pdm_map_t* ctx, pdm_size_t index);
-PDM_API pdm_bool_t    pdm_map_set       (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer_t second_pointer);
-PDM_API pdm_bool_t    pdm_map_get       (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer_t second_pointer);
-PDM_API pdm_pointer_t pdm_map_at        (pdm_map_t* ctx, pdm_size_t index); // return pair pointer
+PDM_API pdm_size_t pdm_map_count (pdm_map_t* ctx);
+PDM_API pdm_bool_t pdm_map_full  (pdm_map_t* ctx);
+PDM_API pdm_bool_t pdm_map_empty (pdm_map_t* ctx);
+PDM_API void       pdm_map_clear (pdm_map_t* ctx);
+
+PDM_API pdm_pointer_t pdm_map_at     (pdm_map_t* ctx, pdm_size_t index); // return pair pointer
+PDM_API void          pdm_map_erase  (pdm_map_t* ctx, pdm_size_t index);
+PDM_API pdm_bool_t    pdm_map_insert (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer_t second_pointer);
+
+PDM_API pdm_bool_t pdm_map_set (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer_t second_pointer);
+PDM_API pdm_bool_t pdm_map_get (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer_t second_pointer);
 
 PDM_API pdm_pointer_t pdm_map_find           (pdm_map_t* ctx, pdm_pointer_t first_pointer); // return pair pointer
 PDM_API pdm_pointer_t pdm_map_first          (pdm_map_t* ctx, pdm_pointer_t pointer); // return first pointer
