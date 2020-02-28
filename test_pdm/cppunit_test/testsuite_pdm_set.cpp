@@ -21,14 +21,14 @@ typedef int element_t;
 //===========================================================================
 static void dump_pdm_set_element (pdm_set_t* set, pdm_size_t index, pdm_pointer_t pointer)
 {
-	element_t* element;
+	element_t* element_pointer;
 
 
 	if (PDM_NULL_POINTER!=pointer)
 	{
-		element = (element_t*)pointer;
+		element_pointer = (element_t*)pointer;
 
-		printf ("[%d] = %d \r\n", index, *element);
+		printf ("[%d] = %d \r\n", index, *element_pointer);
 	}
 	else
 	{
@@ -117,8 +117,11 @@ testsuite_pdm_set::~testsuite_pdm_set()
 //===========================================================================
 void testsuite_pdm_set::setUp()
 {
+	//-----------------------------------------------------------------------
 	printf("\r\n");
 
+
+	//-----------------------------------------------------------------------
 	pdm_size_t element_max_count = 5;
 	pdm_size_t element_size      = sizeof(element_t);
 
@@ -134,6 +137,7 @@ void testsuite_pdm_set::setUp()
 	if (PDM_NULL_POINTER==_sut_set)        {CPPUNIT_ASSERT(0);}
 
 
+	//-----------------------------------------------------------------------
 	pdm_core_t& core = *_sut_core;
 	pdm_set_t&  set  = *_sut_set;
 
@@ -156,6 +160,7 @@ void testsuite_pdm_set::setUp()
 
 void testsuite_pdm_set::tearDown()
 {
+	//-----------------------------------------------------------------------
 	pdm_core_t& core = *_sut_core;
 	pdm_set_t&  set  = *_sut_set;
 
@@ -169,6 +174,8 @@ void testsuite_pdm_set::tearDown()
 		pdm_core_destroy(&core);
 	}
 
+
+	//-----------------------------------------------------------------------
 	if (_buffer_pointer) { delete[] _buffer_pointer; }
 	if (_sut_core)       { delete _sut_core;         }
 	if (_sut_set)        { delete _sut_set;          }
@@ -264,10 +271,6 @@ void testsuite_pdm_set::test_erase(void)
 
 
 	//-----------------------------------------------------------------------
-	dump_pdm_set(&set);
-
-
-	//-----------------------------------------------------------------------
 	pdm_set_erase(&set, 1u);
 
 
@@ -295,6 +298,10 @@ void testsuite_pdm_set::test_find(void)
 
 	//-----------------------------------------------------------------------
 	fill_set(set);
+
+
+	//-----------------------------------------------------------------------
+	dump_pdm_set(&set);
 
 
 	//-----------------------------------------------------------------------
@@ -352,6 +359,10 @@ void testsuite_pdm_set::test_erase_by_element(void)
 			CPPUNIT_ASSERT(0);
 		}
 	}
+
+
+	//-----------------------------------------------------------------------
+	dump_pdm_set(&set);
 }
 
 

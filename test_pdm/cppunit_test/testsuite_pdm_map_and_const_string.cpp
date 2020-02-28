@@ -84,8 +84,8 @@ public:
 
 private:
 	CPPUNIT_TEST_SUITE(testsuite_pdm_map_and_const_string);
-	CPPUNIT_TEST(test_insert);
 	CPPUNIT_TEST(test_erase);
+	CPPUNIT_TEST(test_insert);
 	CPPUNIT_TEST(test_set);
 	CPPUNIT_TEST(test_get);
 	CPPUNIT_TEST(test_find);
@@ -129,8 +129,11 @@ testsuite_pdm_map_and_const_string::~testsuite_pdm_map_and_const_string()
 //===========================================================================
 void testsuite_pdm_map_and_const_string::setUp()
 {
+	//-----------------------------------------------------------------------
 	printf("\r\n");
 
+
+	//-----------------------------------------------------------------------
 	pdm_size_t element_max_count = 5;
 	pdm_size_t element_size      = 1024;
 
@@ -146,6 +149,7 @@ void testsuite_pdm_map_and_const_string::setUp()
 	if (PDM_NULL_POINTER==_sut_map)        {CPPUNIT_ASSERT(0);}
 
 
+	//-----------------------------------------------------------------------
 	pdm_core_t& core = *_sut_core;
 	pdm_map_t&  map  = *_sut_map;
 
@@ -166,6 +170,7 @@ void testsuite_pdm_map_and_const_string::setUp()
 	}
 
 	
+	//-----------------------------------------------------------------------
 	pdm_bool_t result;
 
 
@@ -186,11 +191,11 @@ void testsuite_pdm_map_and_const_string::setUp()
 
 	result = pdm_const_string_create(&_const_string[5], "5:five", -1, &core);
 	CPPUNIT_ASSERT(PDM_TRUE==result);
-
 }
 
 void testsuite_pdm_map_and_const_string::tearDown()
 {
+	//-----------------------------------------------------------------------
 	pdm_core_t& core = *_sut_core;
 	pdm_map_t&  map  = *_sut_map;
 
@@ -204,6 +209,8 @@ void testsuite_pdm_map_and_const_string::tearDown()
 		pdm_core_destroy(&core);
 	}
 
+
+	//-----------------------------------------------------------------------
 	if (_buffer_pointer) { delete[] _buffer_pointer; }
 	if (_sut_core)       { delete _sut_core;         }
 	if (_sut_map)        { delete _sut_map;          }
@@ -218,6 +225,7 @@ void testsuite_pdm_map_and_const_string::tearDown()
 //===========================================================================
 void testsuite_pdm_map_and_const_string::fill_map (pdm_map_t& map)
 {
+	//-----------------------------------------------------------------------
 	pdm_core_t& core = *_sut_core;
 
 	first_t* first_pointer;
@@ -264,8 +272,24 @@ void testsuite_pdm_map_and_const_string::fill_map (pdm_map_t& map)
 }
 
 //===========================================================================
+void testsuite_pdm_map_and_const_string::test_erase(void)
+{
+	//-----------------------------------------------------------------------
+	pdm_map_t& map = *_sut_map;
+
+
+	//-----------------------------------------------------------------------
+	fill_map(map);
+
+
+	//-----------------------------------------------------------------------
+	pdm_map_erase(&map, 3);
+	CPPUNIT_ASSERT(3u==pdm_map_count(&map));
+}
+
 void testsuite_pdm_map_and_const_string::test_insert(void)
 {
+	//-----------------------------------------------------------------------
 	pdm_map_t& map = *_sut_map;
 
 	first_t* first_pointer;
@@ -296,42 +320,13 @@ void testsuite_pdm_map_and_const_string::test_insert(void)
 	CPPUNIT_ASSERT(5u==pdm_map_count(&map));
 
 
-	dump_pdm_map_and_const_string(&map);
-}
-
-void testsuite_pdm_map_and_const_string::test_erase(void)
-{
-	pdm_map_t& map = *_sut_map;
-
-
 	//-----------------------------------------------------------------------
-	fill_map(map);
-
-
-	//-----------------------------------------------------------------------
-	printf ("pdm_map_erase(3)\r\n");
-	dump_pdm_map_and_const_string(&map);
-	pdm_map_erase(&map, 3);
-	CPPUNIT_ASSERT(3u==pdm_map_count(&map));
-	dump_pdm_map_and_const_string(&map);
-	printf ("\r\n");
-
-	printf ("pdm_map_erase(0)\r\n");
-	dump_pdm_map_and_const_string(&map);
-	pdm_map_erase(&map, 0);
-	CPPUNIT_ASSERT(2u==pdm_map_count(&map));
-	dump_pdm_map_and_const_string(&map);
-	printf ("\r\n");
-
-	printf ("pdm_map_erase(1)\r\n");
-	dump_pdm_map_and_const_string(&map);
-	pdm_map_erase(&map, 1);
-	CPPUNIT_ASSERT(1u==pdm_map_count(&map));
 	dump_pdm_map_and_const_string(&map);
 }
 
 void testsuite_pdm_map_and_const_string::test_set(void)
 {
+	//-----------------------------------------------------------------------
 	pdm_map_t& map = *_sut_map;
 
 	first_t* first_pointer;
@@ -351,11 +346,13 @@ void testsuite_pdm_map_and_const_string::test_set(void)
 	CPPUNIT_ASSERT(PDM_TRUE==result);
 
 
+	//-----------------------------------------------------------------------
 	dump_pdm_map_and_const_string(&map);
 }
 
 void testsuite_pdm_map_and_const_string::test_get(void)
 {
+	//-----------------------------------------------------------------------
 	pdm_map_t& map = *_sut_map;
 
 	first_t* first_pointer;
@@ -379,10 +376,12 @@ void testsuite_pdm_map_and_const_string::test_get(void)
 
 void testsuite_pdm_map_and_const_string::test_find(void)
 {
+	//-----------------------------------------------------------------------
 	pdm_map_t& map = *_sut_map;
 
 	pdm_pointer_t pointer;
 	first_t* first_pointer;
+	second_t* second_pointer;
 
 
 
@@ -400,24 +399,28 @@ void testsuite_pdm_map_and_const_string::test_find(void)
 	pointer = pdm_map_find(&map, first_pointer);
 	CPPUNIT_ASSERT(PDM_NULL_POINTER!=pointer);
 
-
-//	first_t*  first_pointer;
-	second_t* second_pointer;
-
-
 	first_pointer  = (first_t* )pdm_map_first(&map, pointer);
 	second_pointer = (second_t*)pdm_map_second(&map, pointer);
 
+
 	CPPUNIT_ASSERT(0==pdm_const_string_compare(first_pointer, &_const_string[1]));
+
 
 	CPPUNIT_ASSERT(*second_pointer == 1u);
 }
 
 void testsuite_pdm_map_and_const_string::test_erase_by_first(void)
 {
+	//-----------------------------------------------------------------------
 	pdm_map_t& map = *_sut_map;
 
+	pdm_size_t count;
+	pdm_size_t i;
+	
+	pdm_pointer_t pointer;
+
 	first_t*  first_pointer;
+	second_t* second_pointer;
 
 
 	//-----------------------------------------------------------------------
@@ -433,15 +436,6 @@ void testsuite_pdm_map_and_const_string::test_erase_by_first(void)
 	first_pointer = &_const_string[1];
 	pdm_map_erase_by_first(&map, first_pointer);
 	CPPUNIT_ASSERT(pdm_map_count(&map)==3);
-
-
-	pdm_size_t count;
-	pdm_size_t i;
-	
-	pdm_pointer_t pointer;
-
-//	first_t*  first_pointer;
-	second_t* second_pointer;
 
 
 	count = pdm_map_count(&map);
@@ -462,6 +456,8 @@ void testsuite_pdm_map_and_const_string::test_erase_by_first(void)
 		}
 	}
 
+
+	//-----------------------------------------------------------------------
 	dump_pdm_map_and_const_string(&map);
 }
 

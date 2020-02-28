@@ -195,7 +195,7 @@ pdm_pointer_t pdm_set_find (pdm_set_t* ctx, pdm_pointer_t pointer)
 
 		if ( PDM_TRUE==ctx->equal(e, pointer) )
 		{
-			return pointer;
+			return e;
 		}
 		else
 		{
