@@ -69,6 +69,7 @@ void pdm_map_erase (pdm_map_t* ctx, pdm_size_t index)
 	pdm_set_erase(&ctx->set, index);
 }
 
+// ref: pdm_set_insert()
 pdm_bool_t pdm_map_insert (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer_t second_pointer)
 {
 	pdm_int_t count;
