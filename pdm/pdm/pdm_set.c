@@ -60,6 +60,65 @@ void pdm_set_clear (pdm_set_t* ctx)
 }
 
 //===========================================================================
+pdm_size_t pdm_set_lower_bound(pdm_set_t* ctx, pdm_pointer_t pointer)
+{
+	pdm_size_t low;
+	pdm_size_t high;
+	pdm_size_t mid;
+
+	pdm_pointer_t e;
+
+
+	low  = 0u;
+	high = pdm_set_count(ctx);
+	while (low < high)
+	{
+		mid = (low + high) / 2u;
+
+		e = pdm_container_at(&ctx->container, mid);
+		if (PDM_TRUE == ctx->less(e, pointer))
+		{
+			low  = mid + 1u;
+		}
+		else
+		{
+			high = mid;
+		}
+	}
+
+	return low;
+}
+
+pdm_size_t pdm_set_upper_bound(pdm_set_t* ctx, pdm_pointer_t pointer)
+{
+	pdm_size_t low;
+	pdm_size_t high;
+	pdm_size_t mid;
+
+	pdm_pointer_t e;
+
+
+	low = 0u;
+	high = pdm_set_count(ctx);
+	while (low < high)
+	{
+		mid = (low + high) / 2u;
+
+		e = pdm_container_at(&ctx->container, mid);
+		if (PDM_TRUE == ctx->less(pointer, e))
+		{
+			high = mid;
+		}
+		else
+		{
+			low = mid + 1u;
+		}
+	}
+
+	return low;
+}
+
+//===========================================================================
 pdm_pointer_t pdm_set_at (pdm_set_t* ctx, pdm_size_t index)
 {
 	return pdm_container_at(&ctx->container, index);
@@ -72,141 +131,46 @@ void pdm_set_erase (pdm_set_t* ctx, pdm_size_t index)
 
 pdm_bool_t pdm_set_insert (pdm_set_t* ctx, pdm_pointer_t pointer)
 {
-	pdm_int_t count;
-	pdm_int_t low  ;
-	pdm_int_t high ;
-	pdm_int_t mid  ;
-	pdm_int_t pos  ;
-
-	pdm_uint_t    index;
+	pdm_size_t    count;
+	pdm_size_t    lbound;
 	pdm_pointer_t e;
 
 
-	if (PDM_TRUE==pdm_set_full(ctx))
+	count  = pdm_set_count(ctx);
+	lbound = pdm_set_lower_bound(ctx, pointer);
+	if (lbound < count)
 	{
-		return PDM_FALSE;
-	}
-	if (PDM_TRUE==pdm_set_empty(ctx))
-	{
-		e = pdm_container_memory(&ctx->container, 0u);
-		if (PDM_NULL_POINTER!=e)
-		{
-			pdm_copy_memory(e, pointer , ctx->container.element_size);
-
-			ctx->container.element_count++;
-
-			return PDM_TRUE;
-		}
-
-		return PDM_FALSE;
-	}
-
-
-	count = (pdm_int_t)pdm_set_count(ctx);
-	low   = 0;
-	high  = count - 1;
-	mid   = 0;
-	while ( low<=high )
-	{
-		mid = (low + high) / 2;
-
-		index = mid;
-		e     = pdm_container_at(&ctx->container, index);
-
-		if ( PDM_TRUE==ctx->equal(e, pointer) )
+		e = pdm_container_at(&ctx->container, lbound);
+		if (PDM_TRUE == ctx->equal(e, pointer))
 		{
 			// already existed
 			return PDM_FALSE;
 		}
 		else
 		{
-			if ( PDM_TRUE==ctx->less(e, pointer) )
-			{
-				low = mid + 1;
-			}
-			else
-			{
-				high = mid - 1;
-			}
+			return pdm_container_insert(&ctx->container, lbound, pointer);
 		}
 	}
 
-
-	index = mid;
-	e     = pdm_container_at(&ctx->container, index);
-
-	if ( PDM_TRUE==ctx->less(e, pointer) )
-	{
-		pos = mid + 1;
-	}
-	else
-	{
-		pos = mid;
-	}
-
-
-	index = pos;
-	if (pos<count)
-	{
-		pdm_container_move_down(&ctx->container, index);
-
-		e = pdm_container_at(&ctx->container, index);
-	}
-	else
-	{
-		e = pdm_container_memory(&ctx->container, index);
-	}
-
-	pdm_copy_memory(e, pointer , ctx->container.element_size );
-
-	ctx->container.element_count++;
-
-	return PDM_TRUE;
+	return pdm_container_push_back(&ctx->container, pointer);
 }
 
 //===========================================================================
 pdm_pointer_t pdm_set_find (pdm_set_t* ctx, pdm_pointer_t pointer)
 {
-	pdm_int_t count;
-	pdm_int_t low  ;
-	pdm_int_t high ;
-	pdm_int_t mid  ;
-
-	pdm_size_t    index;
+	pdm_size_t    count;
+	pdm_size_t    lbound;
 	pdm_pointer_t e;
 
 
-	if (PDM_TRUE==pdm_set_empty(ctx))
+	count  = pdm_set_count(ctx);
+	lbound = pdm_set_lower_bound(ctx, pointer);
+	if (lbound < count)
 	{
-		return PDM_NULL_POINTER;
-	}
-
-
-	count = (pdm_int_t)pdm_set_count(ctx);
-	low   = 0;
-	high  = count - 1;
-	mid   = 0;
-	while ( low<=high )
-	{
-		mid = (low + high) / 2;
-
-		index = mid;
-		e     = pdm_container_at(&ctx->container, index);
-
-		if ( PDM_TRUE==ctx->equal(e, pointer) )
+		e = pdm_container_at(&ctx->container, lbound);
+		if (PDM_TRUE == ctx->equal(e, pointer))
 		{
 			return e;
-		}
-		else
-		{
-			if ( PDM_TRUE==ctx->less(e, pointer) )
-			{
-				low = mid + 1;
-			}
-			else
-			{
-				high = mid - 1;
-			}
 		}
 	}
 
@@ -215,52 +179,21 @@ pdm_pointer_t pdm_set_find (pdm_set_t* ctx, pdm_pointer_t pointer)
 
 void pdm_set_erase_by_element (pdm_set_t* ctx, pdm_pointer_t pointer)
 {
-	pdm_int_t count;
-	pdm_int_t low  ;
-	pdm_int_t high ;
-	pdm_int_t mid  ;
-
-	pdm_size_t    index;
+	pdm_size_t    count;
+	pdm_size_t    lbound;
 	pdm_pointer_t e;
 
 
-	if (PDM_TRUE==pdm_set_empty(ctx))
+	count  = pdm_set_count(ctx);
+	lbound = pdm_set_lower_bound(ctx, pointer);
+	if (lbound < count)
 	{
-		return /*PDM_FALSE*/;
-	}
-
-
-	count = (pdm_int_t)pdm_set_count(ctx);
-	low   = 0;
-	high  = count - 1;
-	mid   = 0;
-	while ( low<=high )
-	{
-		mid = (low + high) / 2;
-
-		index   = mid;
-		e = pdm_container_at(&ctx->container, index);
-
-		if ( PDM_TRUE==ctx->equal(e, pointer) )
+		e = pdm_container_at(&ctx->container, lbound);
+		if (PDM_TRUE == ctx->equal(e, pointer))
 		{
-			pdm_set_erase(ctx, index);
-			return /*PDM_TRUE*/;
-		}
-		else
-		{
-			if ( PDM_TRUE==ctx->less(e, pointer) )
-			{
-				low = mid + 1;
-			}
-			else
-			{
-				high = mid - 1;
-			}
+			pdm_set_erase(ctx, lbound);
 		}
 	}
-
-
-	/*return PDM_FALSE;*/
 }
 
 

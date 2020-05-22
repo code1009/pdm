@@ -59,6 +59,17 @@ void pdm_map_clear (pdm_map_t* ctx)
 }
 
 //===========================================================================
+pdm_size_t pdm_map_lower_bound(pdm_map_t* ctx, pdm_pointer_t first_pointer)
+{
+	return pdm_set_lower_bound(&ctx->set, first_pointer);
+}
+
+pdm_size_t pdm_map_upper_bound(pdm_map_t* ctx, pdm_pointer_t first_pointer)
+{
+	return pdm_set_upper_bound(&ctx->set, first_pointer);
+}
+
+//===========================================================================
 pdm_pointer_t pdm_map_at (pdm_map_t* ctx, pdm_size_t index)
 {
 	return pdm_set_at(&ctx->set, index);
@@ -69,104 +80,42 @@ void pdm_map_erase (pdm_map_t* ctx, pdm_size_t index)
 	pdm_set_erase(&ctx->set, index);
 }
 
-// ref: pdm_set_insert()
 pdm_bool_t pdm_map_insert (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer_t second_pointer)
 {
-	pdm_int_t count;
-	pdm_int_t low  ;
-	pdm_int_t high ;
-	pdm_int_t mid  ;
-	pdm_int_t pos  ;
-
-	pdm_uint_t    index;
+	pdm_size_t    count;
+	pdm_size_t    lbound;
 	pdm_pointer_t e;
 
 	pdm_pointer_t e_first_pointer;
 	pdm_pointer_t e_second_pointer;
 
 
-
-	if (PDM_TRUE==pdm_map_full(ctx))
+	if (PDM_TRUE == pdm_map_full(ctx))
 	{
 		return PDM_FALSE;
 	}
-	if (PDM_TRUE==pdm_map_empty(ctx))
+
+	count  = pdm_set_count(&ctx->set);
+	lbound = pdm_set_lower_bound(&ctx->set, first_pointer);
+	if (lbound < count)
 	{
-		e = pdm_container_memory(&ctx->set.container, 0u);
-		if (PDM_NULL_POINTER!=e)
-		{
-			e_first_pointer  = pdm_map_first (ctx, e);
-			e_second_pointer = pdm_map_second(ctx, e);
-
-			pdm_copy_memory(e_first_pointer , first_pointer , ctx->first_size );
-			pdm_copy_memory(e_second_pointer, second_pointer, ctx->second_size);
-
-			ctx->set.container.element_count++;
-
-			return PDM_TRUE;
-		}
-
-		return PDM_FALSE;
-	}
-
-
-	count = (pdm_int_t)pdm_map_count(ctx);
-	low   = 0;
-	high  = count - 1;
-	mid   = 0;
-	while ( low<=high )
-	{
-		mid = (low + high) / 2;
-
-		index = mid;
-		e     = pdm_container_at(&ctx->set.container, index);
-
-		if ( PDM_TRUE==ctx->set.equal(pdm_map_first(ctx, e), first_pointer) )
+		e = pdm_container_at(&ctx->set.container, lbound);
+		if (PDM_TRUE == ctx->set.equal(pdm_map_first(ctx, e), first_pointer))
 		{
 			// already existed
 			return PDM_FALSE;
 		}
 		else
 		{
-			if ( PDM_TRUE==ctx->set.less(pdm_map_first(ctx, e), first_pointer) )
-			{
-				low = mid + 1;
-			}
-			else
-			{
-				high = mid - 1;
-			}
+			pdm_container_move_down(&ctx->set.container, lbound);
 		}
 	}
-
-
-	index = mid;
-	e     = pdm_container_at(&ctx->set.container, index);
-
-	if ( PDM_TRUE==ctx->set.less(pdm_map_first(ctx, e), first_pointer) )
-	{
-		pos = mid + 1;
-	}
 	else
 	{
-		pos = mid;
+		e = pdm_container_memory(&ctx->set.container, count);
 	}
 
-
-	index = pos;
-	if (pos<count)
-	{
-		pdm_container_move_down(&ctx->set.container, index);
-
-		e = pdm_container_at(&ctx->set.container, index);
-	}
-	else
-	{
-		e = pdm_container_memory(&ctx->set.container, index);
-	}
-
-
-	e_first_pointer  = pdm_map_first (ctx, e);
+	e_first_pointer  = pdm_map_first(ctx, e);
 	e_second_pointer = pdm_map_second(ctx, e);
 
 	pdm_copy_memory(e_first_pointer , first_pointer , ctx->first_size );
