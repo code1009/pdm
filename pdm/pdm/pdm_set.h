@@ -39,12 +39,13 @@ PDM_API pdm_bool_t pdm_set_full  (pdm_set_t* ctx);
 PDM_API pdm_bool_t pdm_set_empty (pdm_set_t* ctx);
 PDM_API void       pdm_set_clear (pdm_set_t* ctx);
 
+PDM_API pdm_pointer_t pdm_set_at    (pdm_set_t* ctx, pdm_size_t index);
+PDM_API void          pdm_set_erase (pdm_set_t* ctx, pdm_size_t index);
+
 PDM_API pdm_size_t pdm_set_lower_bound (pdm_set_t* ctx, pdm_pointer_t pointer);
 PDM_API pdm_size_t pdm_set_upper_bound (pdm_set_t* ctx, pdm_pointer_t pointer);
 
-PDM_API pdm_pointer_t pdm_set_at     (pdm_set_t* ctx, pdm_size_t index);
-PDM_API void          pdm_set_erase  (pdm_set_t* ctx, pdm_size_t index);
-PDM_API pdm_bool_t    pdm_set_insert (pdm_set_t* ctx, pdm_pointer_t pointer);
+PDM_API pdm_bool_t pdm_set_insert (pdm_set_t* ctx, pdm_pointer_t pointer);
 
 PDM_API pdm_pointer_t pdm_set_find             (pdm_set_t* ctx, pdm_pointer_t pointer);
 PDM_API void          pdm_set_erase_by_element (pdm_set_t* ctx, pdm_pointer_t pointer);

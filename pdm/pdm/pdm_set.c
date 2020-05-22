@@ -60,7 +60,18 @@ void pdm_set_clear (pdm_set_t* ctx)
 }
 
 //===========================================================================
-pdm_size_t pdm_set_lower_bound(pdm_set_t* ctx, pdm_pointer_t pointer)
+pdm_pointer_t pdm_set_at (pdm_set_t* ctx, pdm_size_t index)
+{
+	return pdm_container_at(&ctx->container, index);
+}
+
+void pdm_set_erase (pdm_set_t* ctx, pdm_size_t index)
+{
+	pdm_container_erase(&ctx->container, index);
+}
+
+//===========================================================================
+pdm_size_t pdm_set_lower_bound (pdm_set_t* ctx, pdm_pointer_t pointer)
 {
 	pdm_size_t low;
 	pdm_size_t high;
@@ -91,7 +102,7 @@ pdm_size_t pdm_set_lower_bound(pdm_set_t* ctx, pdm_pointer_t pointer)
 	return low;
 }
 
-pdm_size_t pdm_set_upper_bound(pdm_set_t* ctx, pdm_pointer_t pointer)
+pdm_size_t pdm_set_upper_bound (pdm_set_t* ctx, pdm_pointer_t pointer)
 {
 	pdm_size_t low;
 	pdm_size_t high;
@@ -122,16 +133,6 @@ pdm_size_t pdm_set_upper_bound(pdm_set_t* ctx, pdm_pointer_t pointer)
 }
 
 //===========================================================================
-pdm_pointer_t pdm_set_at (pdm_set_t* ctx, pdm_size_t index)
-{
-	return pdm_container_at(&ctx->container, index);
-}
-
-void pdm_set_erase (pdm_set_t* ctx, pdm_size_t index)
-{
-	pdm_container_erase(&ctx->container, index);
-}
-
 pdm_bool_t pdm_set_insert (pdm_set_t* ctx, pdm_pointer_t pointer)
 {
 	pdm_size_t    count;

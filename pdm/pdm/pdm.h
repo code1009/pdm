@@ -95,7 +95,7 @@ typedef unsigned int  pdm_size_t   ;
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-PDM_API pdm_uint_t pdm_get_version (void);
+PDM_API pdm_uint_t pdm_version (void);
 
 
 

@@ -67,9 +67,10 @@ void pdm_vector_erase (pdm_vector_t* ctx, pdm_size_t index)
 	pdm_container_erase(&ctx->container, index);
 }
 
+//===========================================================================
 pdm_bool_t pdm_vector_insert (pdm_vector_t* ctx, pdm_size_t index, pdm_pointer_t pointer)
 {
-	return pdm_container_insert (&ctx->container, index, pointer);
+	return pdm_container_insert(&ctx->container, index, pointer);
 }
 
 //===========================================================================
@@ -94,7 +95,7 @@ void pdm_vector_pop_back (pdm_vector_t* ctx)
 	pdm_container_pop_back(&ctx->container);
 }
 
-pdm_bool_t pdm_vector_push_front(pdm_vector_t* ctx, pdm_pointer_t pointer)
+pdm_bool_t pdm_vector_push_front (pdm_vector_t* ctx, pdm_pointer_t pointer)
 {
 	return pdm_container_push_front(&ctx->container, pointer);
 }

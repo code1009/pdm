@@ -53,9 +53,14 @@ void pdm_stack_clear (pdm_stack_t* ctx)
 }
 
 //===========================================================================
-pdm_pointer_t pdm_stack_at (pdm_stack_t* ctx, pdm_size_t index)
+pdm_pointer_t pdm_stack_at(pdm_stack_t* ctx, pdm_size_t index)
 {
 	return pdm_vector_at(&ctx->vector, index);
+}
+
+void pdm_stack_erase(pdm_stack_t* ctx, pdm_size_t index)
+{
+	pdm_vector_erase(&ctx->vector, index);
 }
 
 //===========================================================================

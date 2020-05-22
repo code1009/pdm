@@ -38,7 +38,8 @@ PDM_API pdm_bool_t pdm_stack_full  (pdm_stack_t* ctx);
 PDM_API pdm_bool_t pdm_stack_empty (pdm_stack_t* ctx);
 PDM_API void       pdm_stack_clear (pdm_stack_t* ctx);
 
-PDM_API pdm_pointer_t pdm_stack_at (pdm_stack_t* ctx, pdm_size_t index);
+PDM_API pdm_pointer_t pdm_stack_at    (pdm_stack_t* ctx, pdm_size_t index);
+PDM_API void          pdm_stack_erase (pdm_stack_t* ctx, pdm_size_t index);
 
 PDM_API void       pdm_stack_set (pdm_stack_t* ctx, pdm_size_t index, pdm_pointer_t pointer);
 PDM_API pdm_bool_t pdm_stack_get (pdm_stack_t* ctx, pdm_size_t index, pdm_pointer_t pointer);

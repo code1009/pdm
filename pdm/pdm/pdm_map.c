@@ -59,6 +59,17 @@ void pdm_map_clear (pdm_map_t* ctx)
 }
 
 //===========================================================================
+pdm_pointer_t pdm_map_at(pdm_map_t* ctx, pdm_size_t index)
+{
+	return pdm_set_at(&ctx->set, index);
+}
+
+void pdm_map_erase(pdm_map_t* ctx, pdm_size_t index)
+{
+	pdm_set_erase(&ctx->set, index);
+}
+
+//===========================================================================
 pdm_size_t pdm_map_lower_bound (pdm_map_t* ctx, pdm_pointer_t first_pointer)
 {
 	return pdm_set_lower_bound(&ctx->set, first_pointer);
@@ -70,16 +81,6 @@ pdm_size_t pdm_map_upper_bound (pdm_map_t* ctx, pdm_pointer_t first_pointer)
 }
 
 //===========================================================================
-pdm_pointer_t pdm_map_at (pdm_map_t* ctx, pdm_size_t index)
-{
-	return pdm_set_at(&ctx->set, index);
-}
-
-void pdm_map_erase (pdm_map_t* ctx, pdm_size_t index)
-{
-	pdm_set_erase(&ctx->set, index);
-}
-
 pdm_bool_t pdm_map_insert (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer_t second_pointer)
 {
 	pdm_size_t    count;
@@ -124,6 +125,17 @@ pdm_bool_t pdm_map_insert (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_poin
 	ctx->set.container.element_count++;
 
 	return PDM_TRUE;
+}
+
+//===========================================================================
+pdm_pointer_t pdm_map_find(pdm_map_t* ctx, pdm_pointer_t first_pointer)
+{
+	return pdm_set_find(&ctx->set, first_pointer);
+}
+
+void pdm_map_erase_by_first(pdm_map_t* ctx, pdm_pointer_t first_pointer)
+{
+	pdm_set_erase_by_element(&ctx->set, first_pointer);
 }
 
 //===========================================================================
@@ -177,31 +189,21 @@ pdm_bool_t pdm_map_get (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer
 }
 
 //===========================================================================
-pdm_pointer_t pdm_map_find (pdm_map_t* ctx, pdm_pointer_t first_pointer)
-{
-	return pdm_set_find(&ctx->set, first_pointer);
-}
-
-pdm_pointer_t pdm_map_first (pdm_map_t* ctx, pdm_pointer_t pointer)
+pdm_pointer_t pdm_map_first(pdm_map_t* ctx, pdm_pointer_t pointer)
 {
 	return pointer;
 }
 
-pdm_pointer_t pdm_map_second (pdm_map_t* ctx, pdm_pointer_t pointer)
+pdm_pointer_t pdm_map_second(pdm_map_t* ctx, pdm_pointer_t pointer)
 {
 	pdm_byte_t* first_pointer;
 	pdm_byte_t* second_pointer;
-	
 
-	first_pointer  = pointer;
+
+	first_pointer = pointer;
 	second_pointer = first_pointer + ctx->first_aligned_size;
 
 	return second_pointer;
-}
-
-void pdm_map_erase_by_first (pdm_map_t* ctx, pdm_pointer_t first_pointer)
-{
-	pdm_set_erase_by_element(&ctx->set, first_pointer);
 }
 
 
