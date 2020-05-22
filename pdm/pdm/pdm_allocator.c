@@ -23,7 +23,7 @@
 //===========================================================================
 pdm_bool_t pdm_allocator_create (pdm_allocator_t* ctx)
 {
-	ctx->aligned_size     = sizeof(void*);
+	ctx->aligned_size   = sizeof(void*);
 	ctx->allocated_size = 0u;
 
 
