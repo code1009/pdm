@@ -75,7 +75,7 @@ pdm_size_t pdm_set_lower_bound(pdm_set_t* ctx, pdm_pointer_t pointer)
 	{
 		// mid = (low + high) / 2u;
 		// (x+y)/2 => x&y + (x^y)/2
-		mid = (low & high) + ((low ^ high) / 2);
+		mid = (low & high) + ((low ^ high) / 2u);
 
 		e = pdm_container_at(&ctx->container, mid);
 		if (PDM_TRUE == ctx->less(e, pointer))
@@ -105,7 +105,7 @@ pdm_size_t pdm_set_upper_bound(pdm_set_t* ctx, pdm_pointer_t pointer)
 	while (low < high)
 	{
 		//mid = (low + high) / 2u;
-		mid = (low & high) + ((low ^ high) / 2);
+		mid = (low & high) + ((low ^ high) / 2u);
 
 		e = pdm_container_at(&ctx->container, mid);
 		if (PDM_TRUE == ctx->less(pointer, e))
