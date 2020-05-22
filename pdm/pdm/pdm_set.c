@@ -98,7 +98,7 @@ pdm_size_t pdm_set_upper_bound(pdm_set_t* ctx, pdm_pointer_t pointer)
 	pdm_pointer_t e;
 
 
-	low = 0u;
+	low  = 0u;
 	high = pdm_set_count(ctx);
 	while (low < high)
 	{
@@ -111,7 +111,7 @@ pdm_size_t pdm_set_upper_bound(pdm_set_t* ctx, pdm_pointer_t pointer)
 		}
 		else
 		{
-			low = mid + 1u;
+			low  = mid + 1u;
 		}
 	}
 

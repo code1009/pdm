@@ -23,8 +23,8 @@
 //===========================================================================
 pdm_bool_t pdm_map_create (pdm_map_t* ctx, pdm_size_t element_max_count, pdm_size_t first_size, pdm_size_t second_size, pdm_equal_t first_equal, pdm_less_t first_less, pdm_core_t* core)
 {
-	ctx->first_size =first_size ;
-	ctx->second_size=second_size;
+	ctx->first_size  = first_size ;
+	ctx->second_size = second_size;
 
 	ctx->first_aligned_size  = pdm_allocator_align_size(&core->allocator, first_size );
 	ctx->second_aligned_size = pdm_allocator_align_size(&core->allocator, second_size);
@@ -59,12 +59,12 @@ void pdm_map_clear (pdm_map_t* ctx)
 }
 
 //===========================================================================
-pdm_size_t pdm_map_lower_bound(pdm_map_t* ctx, pdm_pointer_t first_pointer)
+pdm_size_t pdm_map_lower_bound (pdm_map_t* ctx, pdm_pointer_t first_pointer)
 {
 	return pdm_set_lower_bound(&ctx->set, first_pointer);
 }
 
-pdm_size_t pdm_map_upper_bound(pdm_map_t* ctx, pdm_pointer_t first_pointer)
+pdm_size_t pdm_map_upper_bound (pdm_map_t* ctx, pdm_pointer_t first_pointer)
 {
 	return pdm_set_upper_bound(&ctx->set, first_pointer);
 }
@@ -115,7 +115,7 @@ pdm_bool_t pdm_map_insert (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_poin
 		e = pdm_container_memory(&ctx->set.container, count);
 	}
 
-	e_first_pointer  = pdm_map_first(ctx, e);
+	e_first_pointer  = pdm_map_first (ctx, e);
 	e_second_pointer = pdm_map_second(ctx, e);
 
 	pdm_copy_memory(e_first_pointer , first_pointer , ctx->first_size );
