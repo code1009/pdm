@@ -59,8 +59,8 @@ PDM_API void          pdm_map_erase_by_first (pdm_map_t* ctx, pdm_pointer_t firs
 PDM_API pdm_bool_t pdm_map_set (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer_t second_pointer);
 PDM_API pdm_bool_t pdm_map_get (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer_t second_pointer);
 
-PDM_API pdm_pointer_t pdm_map_first  (pdm_map_t* ctx, pdm_pointer_t pointer); // return first pointer
-PDM_API pdm_pointer_t pdm_map_second (pdm_map_t* ctx, pdm_pointer_t pointer); // return second pointer
+PDM_API pdm_pointer_t pdm_map_first  (pdm_map_t* ctx, pdm_pointer_t pair_pointer); // return first pointer
+PDM_API pdm_pointer_t pdm_map_second (pdm_map_t* ctx, pdm_pointer_t pair_pointer); // return second pointer
 
 
 

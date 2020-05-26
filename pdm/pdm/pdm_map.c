@@ -83,10 +83,10 @@ pdm_size_t pdm_map_upper_bound (pdm_map_t* ctx, pdm_pointer_t first_pointer)
 //===========================================================================
 pdm_bool_t pdm_map_insert (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer_t second_pointer)
 {
-	pdm_size_t    count;
-	pdm_size_t    lbound;
-	pdm_pointer_t e;
+	pdm_size_t count;
+	pdm_size_t lbound;
 
+	pdm_pointer_t e_pointer; // pair pointer
 	pdm_pointer_t e_first_pointer;
 	pdm_pointer_t e_second_pointer;
 
@@ -100,8 +100,8 @@ pdm_bool_t pdm_map_insert (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_poin
 	lbound = pdm_set_lower_bound(&ctx->set, first_pointer);
 	if (lbound < count)
 	{
-		e = pdm_container_at(&ctx->set.container, lbound);
-		if (PDM_TRUE == ctx->set.equal(pdm_map_first(ctx, e), first_pointer))
+		e_pointer = pdm_container_at(&ctx->set.container, lbound);
+		if (PDM_TRUE == ctx->set.equal(pdm_map_first(ctx, e_pointer), first_pointer))
 		{
 			// already existed
 			return PDM_FALSE;
@@ -113,11 +113,11 @@ pdm_bool_t pdm_map_insert (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_poin
 	}
 	else
 	{
-		e = pdm_container_memory(&ctx->set.container, count);
+		e_pointer = pdm_container_memory(&ctx->set.container, count);
 	}
 
-	e_first_pointer  = pdm_map_first (ctx, e);
-	e_second_pointer = pdm_map_second(ctx, e);
+	e_first_pointer  = pdm_map_first (ctx, e_pointer);
+	e_second_pointer = pdm_map_second(ctx, e_pointer);
 
 	pdm_copy_memory(e_first_pointer , first_pointer , ctx->first_size );
 	pdm_copy_memory(e_second_pointer, second_pointer, ctx->second_size);
@@ -141,13 +141,12 @@ void pdm_map_erase_by_first(pdm_map_t* ctx, pdm_pointer_t first_pointer)
 //===========================================================================
 pdm_bool_t pdm_map_set (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer_t second_pointer)
 {
-	pdm_pointer_t pointer;
-	
+	pdm_pointer_t e_pointer;	
 	pdm_pointer_t e_second_pointer;
 
 	
-	pointer = pdm_map_find (ctx,first_pointer);
-	if (PDM_NULL_POINTER==pointer)
+	e_pointer = pdm_map_find (ctx,first_pointer);
+	if (PDM_NULL_POINTER== e_pointer)
 	{
 		if (PDM_TRUE==pdm_map_full(ctx))
 		{
@@ -158,7 +157,7 @@ pdm_bool_t pdm_map_set (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer
 	}
 
 
-	e_second_pointer = pdm_map_second(ctx, pointer);
+	e_second_pointer = pdm_map_second(ctx, e_pointer);
 
 	pdm_copy_memory(e_second_pointer, second_pointer, ctx->second_size);
 
@@ -168,19 +167,18 @@ pdm_bool_t pdm_map_set (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer
 
 pdm_bool_t pdm_map_get (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer_t second_pointer)
 {
-	pdm_pointer_t pointer;
-	
+	pdm_pointer_t e_pointer;
 	pdm_pointer_t e_second_pointer;
 
 	
-	pointer = pdm_map_find (ctx,first_pointer);
-	if (PDM_NULL_POINTER==pointer)
+	e_pointer = pdm_map_find (ctx,first_pointer);
+	if (PDM_NULL_POINTER== e_pointer)
 	{
 		return PDM_FALSE;
 	}
 
 
-	e_second_pointer = pdm_map_second(ctx, pointer);
+	e_second_pointer = pdm_map_second(ctx, e_pointer);
 
 	pdm_copy_memory(second_pointer, e_second_pointer, ctx->second_size);
 
@@ -189,18 +187,18 @@ pdm_bool_t pdm_map_get (pdm_map_t* ctx, pdm_pointer_t first_pointer, pdm_pointer
 }
 
 //===========================================================================
-pdm_pointer_t pdm_map_first(pdm_map_t* ctx, pdm_pointer_t pointer)
+pdm_pointer_t pdm_map_first(pdm_map_t* ctx, pdm_pointer_t pair_pointer)
 {
-	return pointer;
+	return pair_pointer;
 }
 
-pdm_pointer_t pdm_map_second(pdm_map_t* ctx, pdm_pointer_t pointer)
+pdm_pointer_t pdm_map_second(pdm_map_t* ctx, pdm_pointer_t pair_pointer)
 {
 	pdm_byte_t* first_pointer;
 	pdm_byte_t* second_pointer;
 
 
-	first_pointer = pointer;
+	first_pointer  = pair_pointer;
 	second_pointer = first_pointer + ctx->first_aligned_size;
 
 	return second_pointer;
