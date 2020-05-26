@@ -47,6 +47,8 @@ PDM_API pdm_size_t pdm_set_upper_bound (pdm_set_t* ctx, pdm_pointer_t pointer);
 
 PDM_API pdm_bool_t pdm_set_insert (pdm_set_t* ctx, pdm_pointer_t pointer);
 
+PDM_API pdm_bool_t pdm_set_get (pdm_set_t* ctx, pdm_size_t index, pdm_pointer_t pointer);
+
 PDM_API pdm_pointer_t pdm_set_find             (pdm_set_t* ctx, pdm_pointer_t pointer);
 PDM_API void          pdm_set_erase_by_element (pdm_set_t* ctx, pdm_pointer_t pointer);
 

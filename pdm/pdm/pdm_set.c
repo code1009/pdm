@@ -160,6 +160,12 @@ pdm_bool_t pdm_set_insert (pdm_set_t* ctx, pdm_pointer_t pointer)
 }
 
 //===========================================================================
+pdm_bool_t pdm_set_get(pdm_set_t* ctx, pdm_size_t index, pdm_pointer_t pointer)
+{
+	return pdm_container_insert(&ctx->container, index, pointer);
+}
+
+//===========================================================================
 pdm_pointer_t pdm_set_find (pdm_set_t* ctx, pdm_pointer_t pointer)
 {
 	pdm_size_t    count;
