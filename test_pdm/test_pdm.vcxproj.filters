@@ -136,4 +136,7 @@
       <Filter>report</Filter>
     </Xml>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="natvis\pdm_container.natvis" />
+  </ItemGroup>
 </Project>
