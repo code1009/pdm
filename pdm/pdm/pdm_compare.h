@@ -35,6 +35,7 @@ PDM_API pdm_bool_t pdm_equal_char    (pdm_pointer_t left, pdm_pointer_t right);
 
 PDM_API pdm_bool_t pdm_equal_const_string (pdm_pointer_t left, pdm_pointer_t right);
 
+PDM_API pdm_bool_t pdm_equal_c_string_pointer (pdm_pointer_t left, pdm_pointer_t right);
 
 //===========================================================================
 PDM_API pdm_bool_t pdm_less_int     (pdm_pointer_t left, pdm_pointer_t right);
@@ -51,6 +52,7 @@ PDM_API pdm_bool_t pdm_less_char    (pdm_pointer_t left, pdm_pointer_t right);
 
 PDM_API pdm_bool_t pdm_less_const_string (pdm_pointer_t left, pdm_pointer_t right);
 
+PDM_API pdm_bool_t pdm_less_c_string_pointer (pdm_pointer_t left, pdm_pointer_t right);
 
 
 

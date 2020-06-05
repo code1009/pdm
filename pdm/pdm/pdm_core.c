@@ -23,7 +23,7 @@
 //===========================================================================
 pdm_bool_t pdm_core_create (pdm_core_t* ctx)
 {
-	pdm_fill_memory(ctx->memory.pointer, 0xEE, ctx->memory.size);
+	pdm_fill_memory(ctx->memory.pointer, 0x00, ctx->memory.size);
 
 	ctx->allocator.memory = &ctx->memory;
 

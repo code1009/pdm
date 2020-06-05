@@ -23,9 +23,9 @@
 //===========================================================================
 pdm_bool_t pdm_allocator_create (pdm_allocator_t* ctx)
 {
-	ctx->aligned_size   = sizeof(void*);
-	ctx->allocated_size = 0u;
-
+	ctx->aligned_size     = sizeof(void*);
+	ctx->allocated_size   = 0u;
+	ctx->deallocated_size = 0u;
 
 	if (ctx->memory->size < ctx->aligned_size)
 	{
@@ -81,6 +81,13 @@ pdm_bool_t pdm_allocator_allocate (pdm_allocator_t* ctx, pdm_memory_t* memory)
 
 void pdm_allocator_free (pdm_allocator_t* ctx, pdm_memory_t* memory)
 {
+	pdm_size_t aligned_size;
+
+
+	aligned_size = pdm_allocator_align_size(ctx, memory->size);
+
+
+	ctx->deallocated_size += aligned_size;
 }
 
 

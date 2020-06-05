@@ -15,6 +15,8 @@
 //===========================================================================
 #include "pdm.h"
 
+#include <string.h>
+
 
 
 
@@ -98,6 +100,24 @@ pdm_bool_t pdm_equal_const_string (pdm_pointer_t left, pdm_pointer_t right)
 	return PDM_FALSE;
 }
 
+pdm_bool_t pdm_equal_c_string_pointer (pdm_pointer_t left, pdm_pointer_t right)
+{
+	pdm_char_t** ap;
+	pdm_char_t** bp;
+
+
+	ap = (pdm_char_t**)left;
+	bp = (pdm_char_t**)right;
+
+	if (0==strcmp(*ap, *bp))
+	{
+		return PDM_TRUE;
+	}
+
+	return PDM_FALSE;
+}
+
+
 
 
 
@@ -132,6 +152,22 @@ pdm_bool_t pdm_less_const_string (pdm_pointer_t left, pdm_pointer_t right)
 	return PDM_FALSE;
 }
 
+pdm_bool_t pdm_less_c_string_pointer (pdm_pointer_t left, pdm_pointer_t right)
+{
+	pdm_char_t** ap;
+	pdm_char_t** bp;
+
+
+	ap = (pdm_char_t**)left;
+	bp = (pdm_char_t**)right;
+
+	if (0>strcmp(*ap, *bp))
+	{
+		return PDM_TRUE;
+	}
+
+	return PDM_FALSE;
+}
 
 
 

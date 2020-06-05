@@ -20,6 +20,7 @@ typedef struct _pdm_allocator_t
 	pdm_memory_t* memory;
 	pdm_size_t    aligned_size;
 	pdm_size_t    allocated_size;
+	pdm_size_t    deallocated_size;
 }
 pdm_allocator_t;
 

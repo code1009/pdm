@@ -3,17 +3,17 @@
 
 <Type Name="_pdm_container_t">
 
-<DisplayString>{{count={element_count}}}</DisplayString>
+<DisplayString>{{count={element_count} max={element_max_count}}}</DisplayString>
 
 <Expand>
 
-<Item Name="[element_count]">element_count</Item>
-<Item Name="[element_max_count]">element_max_count</Item>
 
-<IndexListItems>
-<Size>element_max_count</Size>
-<ValueNode>(memory.pointer + element_aligned_size * $i),[element_aligned_size]</ValueNode>
-</IndexListItems>
+<ArrayItems>
+<Direction>Forward</Direction>
+<Rank>2</Rank>
+<Size>$i==0?(int)element_max_count:(int)element_aligned_size</Size>
+<ValuePointer>memory.pointer</ValuePointer>
+</ArrayItems>
 
 </Expand>
 </Type>
