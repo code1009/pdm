@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
 
+<Type Name="_tdp_string_t">
+
+<DisplayString>{{count={length}}}</DisplayString>
+
+<Expand>
+
+<Item Name="[length]">length</Item>
+
+<IndexListItems>
+<Size>length</Size>
+<ValueNode>(begin + $i),[1]</ValueNode>
+</IndexListItems>
+
+</Expand>
+</Type>
+
+
 <Type Name="_pdm_container_t">
 
 <DisplayString>{{count={element_count}}}</DisplayString>
